@@ -1,5 +1,5 @@
 site_name: DIWv4 · Diseño de interfaces web
-site_url:
+site_url: https://jmarlu.github.io/DIWv4/
 nav:
   - Inicio: index.md
   - El hilo del módulo: mapaModulo.md

@@ -54,6 +54,10 @@ python herramientas/verificar_conservacion.py
 
 La comprobación de recursos docentes conocidos también se ejecuta automáticamente al construir o servir la versión del alumnado. Para ensayar el filtro utiliza `python herramientas/probar_filtro.py`.
 
-Publica únicamente `site/` si decides desplegar el curso. No publiques `.local-docente`, `materiales-docentes` ni el archivo original. No se ha configurado despliegue automático en DIWv4.
+La publicación automática utiliza únicamente `site/`. No publiques `.local-docente`, `materiales-docentes` ni el archivo original.
+
+## Publicación en GitHub Pages
+
+El flujo `.github/workflows/pages.yml` construye y comprueba la web pública al enviar cambios a `main`. En GitHub, abre **Settings → Pages** y selecciona **GitHub Actions** en *Build and deployment*. Cuando termine la acción, el curso estará disponible en https://jmarlu.github.io/DIWv4/.
 
 La documentación del profesor registra cambios y límites: tiempos y evaluación deben conciliarse con la programación del centro; Figma requiere comprobación en el editor. Las dependencias de ejecución y páginas generadas se pueden reconstruir; el contenido previo se conserva en el ZIP.
