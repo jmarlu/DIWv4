@@ -1,0 +1,419 @@
+.shing{
+    background-color: rgba(255,0,0,0.3);
+    border: 1px solid red;   
+    width: 100px;    
+    height: 60px;    
+    border-radius: 2em;
+    position: relative;
+}
+.shing::after {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    content: '';
+    box-shadow: inset 0 2px #FFF;
+    background: -50px center no-repeat;
+    background-image: linear-gradient(125deg,#FFF 30%,#FFF 50%,rgba(255,255,255,0) 50%);
+    background-clip: padding-box;
+    opacity: .3;
+    transition:background-position 0.7s 20s;
+      }
+  
+  .shing:hover:after {
+      transition:  background-position 0.7s 20s;
+    background-position: 100px center;
+  }
+
+  
+
+section{
+    margin-top: 100px;
+}
+.btn {
+    
+    
+    background-color: #00A0D6;
+    color: #FFF;
+    border-bottom: 4px solid rgba(0,0,0, 0.1);
+    border-radius: 40px;
+    
+    
+
+    font: 16px arial, sans-serif;
+    transition: background-color 1s;
+    /* transition: background-color 0.4s , color 0.4s ; */
+    /* transition: all 0.4s;
+ */
+ position:relative;
+display: inline-block;
+line-height: 3;
+overflow: hidden;
+height: 50px;
+width: 200px;
+text-align: center;
+}
+.btn:hover{
+    background-color: red;
+}
+span.content{
+    display:block;
+    width: 100%;
+    text-align:center;
+}
+
+.content{
+  position: absolute;
+    transition: top 1s;
+}
+
+.top{
+    top:0px;
+    
+}
+.bottom{
+    top:100px;
+    
+}
+.btn:hover .top {top: -50px;}
+.btn:hover .bottom {top: 0px;}
+/* modal */
+.modal-content {
+    padding: 20px;
+}
+.modal {
+    background: #fff;
+    border-radius: 20px;
+    left: 50px;
+    overflow: hidden;
+    position: fixed;
+    top: 50px;
+    width: 400px;
+}
+.modal-close {
+    font-size: 200%;
+    right: 15px;
+    top: 0;
+    position: absolute;
+    transition: transform 4s;
+}
+    /* es lo mismo que transform: rotate(1turn);*/
+.modal-close:hover {
+    transform: rotate(360deg);
+    transition: transform 1s;
+}
+
+a {
+    color: #00a0d6;
+    text-decoration: none;
+}
+a {
+    background-color: transparent;
+}
+.modal h3 {
+    margin-bottom: 0;
+    text-align: center;
+}
+h3 {
+    font-size: 150%;
+}
+h1, h2, h3 {
+    font-family: 'Open Sans Condensed', Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    margin-top: 0;
+    text-transform: uppercase;
+}
+
+.modal-header {
+    background: #EEE;
+    padding: 20px 10px;
+}
+.modal-overlay{
+    background: HSLA(290, 33%, 47%, 0.90);
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+.modal, .modal-overlay{
+    visibility: hidden;
+    opacity: 0;
+   /* transition: all 0.5s;*/
+
+}
+
+/* .modal.active, .modal-overlay.active{
+    opacity: 1;
+    visibility: visible;
+} */
+/* form */
+.form-field {
+    margin: 0 0 20px;
+    padding: 0;
+    border: 0;
+}
+.form-submit {
+    margin-top: 40px;
+    text-align: center;
+}
+
+/*form*/
+.form-label {
+    display: block;
+    -webkit-user-select: none;
+    cursor: pointer;
+    font-size: 90%;
+    font-weight: bold;
+    line-height: 3em;
+}
+
+.form-input + .form-label{
+    position: relative;
+    padding: 0.1em;
+    color: #6a7989;
+    transform-origin: left center;
+    transition: transform 0.3s ,color 0.5s;
+
+}
+
+.form-input:focus + .form-label{
+    color:#333;
+    transform: translateY(40px) scale(0.8);
+}
+.form-input {
+    position: absolute;
+    width: 90%;
+    height: 40px;
+    padding: 0 1em;
+    background: #EEE;
+    border: none;
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    font-size: 100%;
+}
+input {
+    line-height: normal;
+}
+button, input, optgroup, select, textarea {
+    color: inherit;
+    font: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    margin: 0;
+}
+.form-input + .form-label {
+    color: #6A7989;
+  
+  }
+
+  @keyframes swing {
+    0%, 100%   {transform: rotate(-30deg),scale(0.95); }
+    20% { transform: scale(0.95); }
+    50% { transform: rotate(30deg); } 
+  }
+
+  @keyframes trasladarY{
+      50% {transform: translateY(-100px);}
+  }
+  @keyframes trasladarX{
+    50% {transform: translateX(100px);}
+}
+  
+  #gorro {
+      transform-origin: top;
+    animation: swing 2s 2 ease-in-out, trasladarY 2s 4s ease,trasladarX 2s 4s ease ;
+  }
+  /* #gorro::after{
+      content: '';
+      animation: trasladarY 2s 4s ease-in;
+  } */
+
+/*Modificación de la animación modal*/
+
+  @keyframes fadeIn {
+    from {
+    opacity: 0;
+    visibility: hidden;
+    }
+    to {
+    opacity: 1;
+    visibility: visible;
+    }
+    }
+
+.modal-overlay.active {
+    animation: fadeIn 0.25s forwards;
+
+    }
+
+.modal.active{
+    animation: slideUp .65s .5s forwards;
+}
+.modal {
+    transform: translateY(700px);
+  }
+    @keyframes slideUp {
+        from { transform: translateY(400px); }
+    to   { transform: translateY(-30px); }
+    }
+  
+  
+  
+  .modal.active {
+   animation: fadeIn 0.25s forwards,
+      slideUp 0.65s 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  }
+
+  @keyframes slideUpSmall {
+    from {transform: translateY(80px);}
+    to {transform: translateY(0);}
+    }
+    .modal.active .modal-header {
+        animation: fadeIn 0.25s 0.8s forwards,
+                   slideUpSmall 0.25s 0.75s forwards;
+      }
+      
+      .modal.active .modal-content {
+        animation: fadeIn 0.25s 0.85s forwards,
+                   slideUpSmall 0.25s 0.8s forwards;
+      }
+
+ /* Animación de svg */
+      @keyframes darken {
+        0%, 100% { fill:auto; }
+        50% { fill:#BD6C8C; }
+      }
+      /*
+      #icing-fill, #icing-shadow {
+        animation: darken 3s infinite;
+      } */
+svg{
+    /* height: 125px;
+    width: 125px; */
+    
+    
+}
+      @keyframes darken {
+        0% {fill: #e9afbc;}
+        100% {fill: rgb(239, 242, 245);}
+        }
+
+        #g115 ellipse{
+            animation: darken 3s 0.25ms infinite;
+        }
+
+
+
+        @keyframes flyoff {
+            0% {transform: rotate(0deg);}
+            10% {transform: rotate(30deg);}
+            20% {transform: rotate(0deg);}
+            30% {transform: rotate(-30deg);}
+            40% {transform: rotate(0deg);}
+            45% {opacity: 1;}
+            50% {
+                transform: rotate(100deg) scale(3);
+                opacity: 0;
+                }
+                100% {
+                    opacity: 0;
+                    transform: scale(1);
+                    } 
+             
+        }
+        #circulos{
+            animation: darken 3s 0.25ms infinite, flyoff 3s infinite ease-in;
+            transform-origin: 81px 41.5px;
+            
+        }
+
+        #cuadrado {
+            color: hsla(0, saturation, lightness, alpha);
+            transition: transform 2s;
+            transform-origin: 50% 50%;
+            animation: flyoff 3s infinite ease-in;
+        }
+
+        /*ejemplo de copos de nieve, misma forma en diferente tamaño*/
+
+        @keyframes snow {
+            100% { top: 700px; transform: rotate(2.2turn); }
+           }
+           @keyframes drift {
+            0% { left: -5px; }
+            25% { left: 55px; }
+            55% { left: -15px; }
+            100% { left: 0px; }
+           }
+
+        img.flake { 
+            width: 150px; 
+            height: 150px;
+            position: relative;
+            animation: snow 8s linear infinite forwards,
+            drift 12s ease-in-out forwards infinite; 
+        }
+/* ejemplos de lineas en un svg */
+        polygon { fill: red; stroke: black; stroke-width: 9px; }
+        polygon:hover { fill: black; }
+
+        /*triangulo*/
+        #triangulo{
+            /* border: 100px solid transparent; */
+            border-bottom: 100px solid rgb(131, 24, 24);
+            border-top:100px solid rgb(31, 24, 131);
+            border-left: 100px solid rgb(131, 24, 74);
+            border-right: 100px solid rgb(42, 131, 24);
+        }
+
+        img.bw { border: 20px solid #fff; 
+            box-shadow: 10px 10px 8px rgba(0,0,0,0.3); }
+            img.old { border: 20px solid #fff; 
+                box-shadow: 10px 10px 8px rgba(0,0,0,0.3); }
+        img.bw { 
+            filter: grayscale(1); 
+            transition: 1s filter linear; }
+        img.bw:hover { 
+            filter: grayscale(0); }
+            
+        img.old { filter: sepia(1); transition: 1s filter linear; }
+        img.old:hover { 
+            filter: sepia(0); 
+            box-shadow: 0 0 50px 0 rgba(29,25,4,0.2) inset;
+        }
+/* Transformaciones en 3d */
+#D{
+    position: relative;
+    background: #333; 
+    width: 100%; 
+    height: 400px;
+    margin: 2rem;
+    border:1px solid black;
+    perspective: 700px; 
+    perspective-origin: center center; 
+}
+#D img{
+    position: absolute;
+    width: 300px; 
+    height: 400px; 
+ 
+}
+.p100{
+
+    /* cuando tenemos que rotar en varios ejes es mejor utilizar  */
+    transform: rotate3d( 0, 1, 0, 45deg);
+    /* transform: rotateY(45deg) ; */
+    
+}
+.p200{
+    perspective: 200px;
+    perspective-origin: center center; 
+    margin: 2rem;
+}
+

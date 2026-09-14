@@ -1,0 +1,48 @@
+ .btn {
+    background-color: #00a0d6;
+    color: #fff;
+    border-bottom: 4px solid rgba(0, 0, 0, 0.1);
+    border-radius: 40px;
+    font: 16px arial, sans-serif;
+    display: inline-block;
+    height: 50px;
+    width: 200px;
+    text-align: center;
+    line-height: 3;
+    position: relative;
+     overflow: hidden;
+    transition: background-color 0.4s , color 0.4s ; /*más de una propiedad*/
+
+  }
+
+.btn:hover {
+    background-color: red;
+  }
+
+span.content {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+
+.content {
+    position: absolute;
+     transition: top 1s;
+   
+  }
+
+  .top {
+    top: 0px;
+    color: antiquewhite;
+  }
+  .bottom {
+    top: 100px;
+  }
+
+  .btn:hover .top {
+    top: -50px;
+  }
+  .btn:hover .bottom {
+    top: 0px;
+  }

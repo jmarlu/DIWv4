@@ -1,0 +1,14 @@
+# Actividad 2 · Variables, módulos y reutilización
+
+Sigue primero [Sass modular](../../sass_actual.mkd).
+
+1. Compila el ejemplo de tarjeta y cambia color, radio y espaciado.
+2. Separa dos módulos y demuestra que un miembro no aparece en otro archivo si no se carga explícitamente.
+3. Crea un mixin con un parámetro y úsalo en dos componentes. Compara el CSS generado.
+4. Reexporta los valores del tema mediante `@forward` y consúmelos con `@use`.
+5. Calcula una proporción con `math.div()` y compara un ajuste absoluto de color con uno proporcional.
+6. Aplica una de estas técnicas al proyecto y justifica si mejora su mantenimiento.
+
+Entrega fuentes, CSS generado, dependencias fijadas y un README con comandos y explicación. El código debe compilar sin avisos de importaciones Sass deprecadas en tus fuentes.
+
+Los [ejercicios anteriores de sintaxis](Ejercicios_historicos.mkd) permanecen disponibles como ampliación: selecciona un caso y adáptalo a módulos cuando se indique.

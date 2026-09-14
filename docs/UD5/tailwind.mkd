@@ -1,0 +1,989 @@
+
+# TAILWIND (Teoría actualizada a v4.1)
+
+## ¿Qué es?
+
+Tailwind CSS es un framework CSS orientado a utilidades. Permite un desarrollo ágil porque aplicas clases directamente en el HTML y optimizas el CSS generado.
+
+Incluye clases para fondo, color de texto, márgenes, tipografía, layout, etc. Pero **no aporta muchos componentes cerrados** (a diferencia de Bootstrap). La idea es combinar utilidades (atajos a propiedades CSS) para construir una interfaz totalmente personalizada.
+
+Internamente Tailwind usa un motor moderno de compilación CSS (sin que tengas que configurar PostCSS para un proyecto básico), lo que mantiene un flujo de trabajo **ágil**, **personalizable** y **optimizado**.
+
+También hay desventajas:
+
+- Necesitas una base sólida de CSS, porque las clases son mapeos directos de propiedades.
+- Trae pocos componentes listos para usar.
+- El HTML puede quedar cargado de clases y dar sensación de estilos en línea.
+
+> En febrero de 2026, la versión estable actual es **Tailwind CSS v4.1.18**.
+> En proyectos sencillos con Tailwind v4.1 puedes trabajar solo con `tailwindcss` + `@tailwindcss/cli`.
+
+### Resumen rápido
+
+- Tailwind = utilidades CSS en el HTML.
+- Mucha flexibilidad, pocos componentes prehechos.
+- En v4.1, configuración mínima para empezar.
+
+## Instalar Tailwind
+
+En su [página oficial](https://tailwindcss.com/) tienes toda la documentación y tutoriales. Esta guía se basa en esos recursos.
+
+La instalación se realiza con `npm`. Antes, asegúrate de tener Node.js (recomendado: versión LTS).
+
+Primero crea una carpeta para el proyecto. Abre una terminal en esa carpeta e inicializa el proyecto con `npm init`. Esto crea el fichero `package.json`, donde configurarás el proyecto y sus scripts.
+
+Con Tailwind CSS v4, para un flujo simple en local solo necesitas el framework y su CLI oficial.
+
+```bash
+npm install -D tailwindcss@4.1.18 @tailwindcss/cli@4.1.18
+# `-D` (alias de `--save-dev`) para dependencias de desarrollo.
+```
+
+Como puedes ver en la siguiente imagen, aparecen las dependencias de desarrollo del proyecto y sus versiones.
+
+![package1](img/packge.png)
+
+Puedes ejecutar `npx @tailwindcss/cli --help` para ver ayuda y opciones. `npx` busca el binario en el proyecto (o en el sistema) y lo ejecuta sin instalación global.
+
+Un paso clave es definir la estructura de entrada/salida. En este ejemplo usamos `src` para estilos fuente y `css` para estilos compilados.
+
+Dentro de `src` crea un fichero `styles.css` (el nombre puede ser otro) e importa Tailwind:
+
+```css
+@import "tailwindcss";
+
+/* Opcional: fuerza rutas adicionales si Tailwind no detecta clases */
+/* @source "./**/*.{html,js}"; */
+```
+
+Para compilar este archivo:
+
+```bash
+npx @tailwindcss/cli -i ./src/styles.css -o ./css/styles.css
+npx @tailwindcss/cli -i ./src/styles.css -o ./css/styles.css --watch
+```
+
+Si observamos la carpeta `"./css/styles.css"` veremos que Tailwind genera únicamente las utilidades que detecta en tu proyecto. En v4 no es obligatorio crear `tailwind.config.js`; el escaneo se hace automáticamente y, si hace falta, puedes forzar rutas desde tu CSS con `@source`.
+
+> **!!OJO!! Configura bien las rutas**
+
+Si usas clases construidas dinámicamente en JavaScript (por ejemplo `bg-${color}-500`), mapéalas a clases completas o añádelas con `@source inline(...)`, porque el escaneo no puede inferir cadenas dinámicas.
+
+### Directivas `@...` más usadas (chuleta)
+
+```css
+@import "tailwindcss";
+```
+Carga Tailwind (Preflight + utilidades). Sin esto, no hay framework.
+
+```css
+@theme {
+  --color-marca: #005187;
+  --shadow-card: 0 4px 10px rgb(0 0 0 / 0.2);
+}
+```
+Define tokens de diseño. Diferencia clave: `@theme` no crea componentes, crea valores reutilizables que luego usas como utilidades (`bg-marca`, `shadow-card`, etc.).
+
+```css
+@layer components {
+  .card {
+    @apply rounded-lg p-4 shadow-card;
+  }
+}
+```
+Agrupa CSS en capas. En esta guía de v4 usamos `@layer` para `base` y `components` (más claro para docencia).
+
+Qué significa cada capa:
+
+```css
+@layer base {
+  h1 { font-size: 2rem; }
+}
+```
+`base` es para estilos globales y elementos HTML (`body`, `h1`, `a`, `input`), equivalente a "reglas de fundamento" del proyecto.
+
+```css
+@layer components {
+  .card { @apply rounded-lg p-4 shadow-card; }
+}
+```
+`components` es para clases semánticas reutilizables de interfaz (`.card`, `.navbar`, `.btn-primary`).
+
+Para utilidades personalizadas en v4, usamos `@utility` (singular):
+
+```css
+@utility content-auto {
+  content-visibility: auto;
+}
+```
+Nota: en esta unidad evitamos `@layer utilities` para no mezclar enfoques.  
+`@utilities` (plural) no es la directiva de v4.
+
+Orden e impacto en cascada:
+
+1. `@layer base` (más global)
+2. `@layer components` (bloques de UI)
+3. Utilidades de Tailwind y `@utility` (más específico, suele ganar en conflicto)
+
+Regla rápida:
+
+- Si afecta a etiquetas HTML: `base`.
+- Si crea un bloque de interfaz con nombre semántico: `components`.
+- Si crea una clase técnica pequeña reutilizable: `@utility`.
+
+```css
+@source "./**/*.{html,js,ts}";
+@source inline("bg-red-500 text-white");
+@source not "./legacy/**/*";
+```
+Controla el escaneo de clases. Diferencia clave: `@source` no da estilo directamente, solo decide qué clases puede generar Tailwind.
+
+```css
+.btn {
+  @apply px-4 py-2 rounded bg-marca text-white;
+}
+```
+Reutiliza utilidades dentro de una clase CSS. Diferencia clave: `@apply` compone estilos existentes; no define tokens ni utilidades nuevas por sí mismo.
+
+Crea una utilidad nueva (como el ejemplo `@utility content-auto` mostrado arriba).  
+Diferencia clave frente a `@layer components`: `@utility` genera una clase de bajo nivel (estilo utilidad), no un componente semántico.
+
+Resumen rápido de diferencias:
+
+- `@theme` = define "valores" (tokens).
+- `@utility` = define "una utilidad nueva".
+- `@layer components` = define "componentes/clases semánticas".
+- `@apply` = compone utilidades existentes dentro de una clase.
+- `@source` = controla escaneo/generación de clases.
+- `@import` = activa Tailwind en el archivo.
+
+Regla práctica:
+
+- Si cambias valores de diseño globales: `@theme`.
+- Si quieres API tipo Tailwind (`p-*`, `bg-*`, etc.) personalizada: `@utility`.
+- Si necesitas clases reutilizables de UI (`.card`, `.menu-item`): `@layer components`.
+- Si repites muchas utilidades en una clase existente: `@apply`.
+- Si faltan clases en build: `@source`.
+
+### Configurar scripts
+
+Dentro del fichero `package.json` disponemos de la sección `scripts`. Ahí definimos comandos para desarrollo y producción.
+
+```json
+{
+  "scripts": {
+    "dev": "tailwindcss -i ./src/styles.css -o ./css/styles.css --watch",
+    "build": "tailwindcss -i ./src/styles.css -o ./css/styles.css --minify"
+  }
+}
+```
+
+![Alt text](img/packge2.png)
+
+Para desarrollo usa `npm run dev` y para compilar optimizado usa `npm run build`.
+
+### Checklist de instalación
+
+- `npm init`
+- `npm install -D tailwindcss @tailwindcss/cli`
+- Crear `src/styles.css` con `@import "tailwindcss";`
+- Compilar con CLI (`--watch` en desarrollo)
+- Enlazar `./css/styles.css` en el HTML
+
+## Primeros pasos con Tailwind
+
+Con Tailwind instalado, vamos a usarlo en una web de ejemplo. Crea un `index.html` y enlázalo con `./css/styles.css`.
+Partimos de este HTML:
+
+```html
+<body>
+  <h1>Hola Mundo</h1>
+  <ul>
+    <li>Manzana</li>
+    <li>Pera</li>
+    <li>Limón</li>
+  </ul>
+</body>
+```
+
+El resultado lo podemos ver en la siguiente imagen. Podemos observar que Tailwind aplica sus propios estilos base (Preflight). Para ver qué propiedades incluye, revísalas en el inspector del navegador.
+
+![reset](img/index.png)
+
+A continuación usamos utilidades de Tailwind. Por ejemplo, `text-2xl`.
+
+![tailWindFont](img/tailwindFont.png)
+
+Además de la clase anterior, podemos probar en el `h1` algunas clases como:
+
+- `bg-black`: Fondo negro.
+- `text-white`: Color de texto blanco
+- `m-5`: que corresponde con `margin: 1.25rem; /* 20px */`.
+- `p-5`: que corresponde con `padding: 1.25rem; /* 20px */`.
+- `border-8`: Que corresponde con `border-width: 8px;`
+- `text-center`: Centramos horizontalmente el texto.
+
+También podemos dar color a ese borde utilizando `border-yellow-900`, donde el nombre indica color e intensidad. Si vas a la sección de colores de la documentación, verás toda la paleta con sus escalas numéricas.
+
+Además podemos controlar la opacidad mediante `border-indigo-500/50` (50% de opacidad). También podemos indicar en qué lados queremos borde, y así con muchas utilidades más. Todos estos ejemplos están sacados de la documentación. Revísala para aplicar la clase que te convenga.
+
+En la siguiente imagen podemos ver el resultado de la inclusión de las clases anteriormente comentadas.
+
+![clases](img/clases.png)
+
+### Resumen rápido
+
+- Empieza por tipografía, espaciado, color y bordes.
+- Combina utilidades pequeñas para construir el estilo final.
+- Usa la documentación para encontrar la utilidad exacta.
+
+## Trabajando con Tailwind
+
+Vamos a trabajar sobre la web del tema de responsive y a rehacerla con Tailwind.
+
+Lo primero que vamos a incluir es una imagen de fondo que disponemos en la carpeta `img`. Para añadir una imagen a un elemento podemos usar CSS personalizado o utilidades con valores arbitrarios (`bg-[url('../img/pattern.png')]`). Lo más sencillo en este ejemplo es añadir CSS personalizado a tu hoja de estilos:
+
+```css
+@import "tailwindcss";
+
+.my-custom-style {
+  background-image: url("../img/pattern.png");
+}
+/* Esta clase la ponemos en el body. */
+```
+
+> Considera que cada vez que se haga una modificación en este archivo o en el HTML se compilará de nuevo.
+
+También puedes usar `@layer` para añadir estilos en `base`, `components` o `utilities`. Esto mantiene el orden correcto en la cascada de Tailwind y evita conflictos.
+
+```css
+@layer base {
+  body {
+    background-image: url("../img/pattern.png");
+  }
+}
+```
+
+De esta forma hemos añadido nuestros estilos, pero también puedes registrar imágenes de fondo como tokens de tema en el propio CSS:
+
+```css
+@theme {
+  --background-image-body-pattern: url("../img/pattern.png");
+}
+```
+
+Ahora hemos añadido un token de imagen de fondo, por lo que podemos usar la clase `bg-body-pattern`.
+
+### Esquema de esta práctica
+
+1. Añadir fondo.
+2. Montar cabecera y menú.
+3. Extraer clases reutilizables con `@layer components`.
+4. Añadir animaciones y estados (`hover`, `group-hover`).
+5. Adaptar a responsive.
+
+### Modificando la cabecera
+
+Vamos a modificar la cabecera y añadir un menú para practicar utilidades del framework. Primero, el HTML:
+
+```html
+<body class="bg-body-pattern">
+  <header class="bg-black text-white bebas">
+    <div class="container w-11/12 mx-auto flex flex-row">
+      <div class="flex-1" id="logo">
+        <div
+          class="w-72 pt-0.5 pb-0.5 text-center tracking-wider transition duration-100 rounded-sm"
+        >
+          <span class="symbol">S</span>
+          <h3>INFORMÁTICA</h3>
+        </div>
+      </div>
+      <nav class="flex-1">
+        <ul>
+          <li><a href="#">INICIO</a></li>
+          <li><a href="#">CONTACTO</a></li>
+          <li><a href="#">PERFIL</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+</body>
+```
+
+Algunas clases relevantes del ejemplo:
+
+- `container`: limita el ancho del elemento. No centra por sí solo, por eso usamos `mx-auto`. Si además quieres ~91.67% de ancho, añade `w-11/12`.
+- `flex`: Dispone los elementos a flex tomando como dirección la fila con la clase `flex-row`. Además la clase `flex-1` permite que un elemento flexible crezca y se encoja según sea necesario, ignorando su tamaño inicial.
+- `tracking-wider`: utilidad para controlar el espaciado entre letras.
+- `transition`: activa transición en propiedades compatibles; con `duration-100` fijamos 100 ms.
+- `rounded-sm`: Utilidad para aplicar redondeo a los bordes.
+
+### Crear un color
+
+Ahora quiero crear un color nuevo que no está definido en el framework y aplicárselo al fondo del logo. Lo haremos con tokens dentro de `@theme`.
+
+```css
+@theme {
+  --background-image-body-pattern: url("../img/pattern.png");
+  --color-azul-claro: #84b6f4;
+  --color-azul-oscuro: #005187;
+}
+```
+
+Ahora, como antes, la manera de aplicar la clase es mediante `bg-azul-claro`. También podemos aplicar ese color al texto (`text-azul-claro`) o a cualquier utilidad de color.
+
+Resumen: token `--color-*` en `@theme` => utilidades como `bg-*`, `text-*`, `border-*` (por ejemplo `--color-azul-claro` genera `bg-azul-claro`).
+
+### Incrustar fuentes desde archivos
+
+Podemos ver que en el código HTML que hemos usado, la clase `symbol` no se encuentra dentro de las utilidades. Para usarla, incrustamos fuentes modificando `./src/styles.css` con la directiva `@layer`.
+
+1. Crear un directorio `fonts` y copiar ahí los archivos de fuente.
+2. Priorizar `woff2` (mejor compresión) y usar `font-display: swap`.
+3. Declarar `@font-face` y clases de utilidad dentro de `@layer base {}`.
+4. Ya podemos utilizar las clases. Por ejemplo, `symbol` para la S (la tuerca) o `bebas` para el `header`.
+
+```css
+@layer base {
+  /* FUENTES */
+  @font-face {
+    font-family: "BebasNeue";
+    src: url("../fonts/BebasNeue.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "WebSymbolsRegular";
+    src: url("../fonts/websymbols-regular-webfont.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  .symbol {
+    font-family: "WebSymbolsRegular";
+  }
+  .bebas {
+    font-family: "BebasNeue";
+  }
+}
+```
+
+Si necesitas compatibilidad con navegadores muy antiguos, puedes dejar formatos de respaldo (`woff`, `ttf`), pero hoy lo habitual es partir de `woff2`.
+
+Ejemplo de uso en HTML:
+
+```html
+<header class="bebas">
+  <span class="symbol">S</span>
+  <h3>INFORMÁTICA</h3>
+</header>
+```
+
+Ahora vamos a aprender cómo utilizar las clases `hover`. Nuestro objetivo es que una vez que pasemos el ratón por encima cambie de color el texto y el fondo blanco. Para ello, deberemos utilizar la clase `hover:text-black hover:bg-white`.
+
+También disponemos de utilidades como `float`, las vamos a utilizar en el logo de la siguiente manera:
+
+```html
+<span class="symbol block float-left text-3xl mt-1 ml-11">S</span>
+<h3 class="block float-right text-4xl mt-1.5 mr-14">INFORMÁTICA</h3>
+```
+
+Ten en cuenta que, si utilizamos `float`, los elementos salen del flujo normal y pueden desbordar. Una forma rápida de controlarlo es usar `overflow-hidden` en el contenedor. En interfaces nuevas suele ser más mantenible usar `flex` o `grid`.
+
+### Crear componentes
+
+Ahora vamos a crear componentes. En `./src/styles.css` vamos a añadir clases en `@layer components` mediante el siguiente código.
+
+```css
+@layer components {
+  .menu-item {
+    @apply mr-5 ml-5 tracking-wider;
+  }
+  .menu-item-a {
+    @apply block transition duration-200 hover:text-azul-oscuro hover:scale-125;
+  }
+}
+```
+
+Hemos creado dos clases que se van a reutilizar mucho y con `@apply` les aplicamos utilidades sin repetir cadenas largas de clases.
+
+Nota importante:
+- `@apply` funciona con utilidades de Tailwind, no con clases personalizadas arbitrarias.
+- Para estilos propios (por ejemplo `font-family` custom), escribe CSS normal dentro de la clase.
+
+```html
+<nav class="flex-1">
+  <ul
+    class="flex flex-row h-20 items-center justify-end text-2xl text-center mr-6"
+  >
+    <li class="menu-item">
+      <a class="menu-item-a" href="#">INICIO</a>
+    </li>
+    <li class="menu-item">
+      <a class="menu-item-a" href="#">CONTACTO</a>
+    </li>
+    <li class="menu-item">
+      <a class="menu-item-a" href="#">PERFIL</a>
+    </li>
+  </ul>
+</nav>
+```
+
+Además podemos observar que hemos utilizado algunas utilidades nuevas de flex como `items-center` que alinea verticalmente.
+
+### Crear animaciones
+
+Si vamos a la documentación, tenemos animaciones básicas. Vamos a utilizar `animate-spin` para hacer que la tuerca dé vueltas y modificaremos su comportamiento.
+
+```html
+<span class=" animate-spin symbol block float-left text-3xl mt-1 ml-11">S</span>
+```
+
+Como podemos observar, la rueda va muy rápido. Podemos pensar que con `duration-*` podemos modificar el comportamiento, pero para animaciones personalizadas en v4 definimos tokens de animación en `@theme` y los `@keyframes` fuera.
+
+```css
+@theme {
+  --animate-spin-slow: spin 3s linear infinite;
+  --animate-mi-wiggle: wiggle 2s linear infinite;
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+```
+
+Ahora lo que vamos a hacer es que, cuando hagamos `hover` sobre cualquier parte del logo (padre), la animación de la tuerca se pare. En Tailwind, tenemos que introducir la clase `group` en el padre y utilizar modificadores `group-*` como `group-hover` para dar estilo al elemento. Si vemos la documentación con solo poner `group-hover:animate-none` sobre la tuerca debería pararse.
+
+```html
+ <div class="group overflow-hidden w-72 pt-0.5 pb-0.5 text-center tracking-wider transition duration-100 rounded-sm bg-azul-claro hover:text-black hover:bg-white"
+          >
+            <span
+              class="symbol animate-spin-slow group-hover:animate-none block float-left text-3xl mt-1 ml-11"
+              >S</span
+            >
+            <div class="invisible group-hover:visible">I'm here!</div>
+
+            <h3
+              class="block group-hover:text-lg group-hover:animate-mi-wiggle float-right text-4xl mt-1.5 mr-14"
+            >
+              INFORMÁTICA
+            </h3>
+          </div>
+        </div>
+```
+
+Como hemos visto, podemos modificar las animaciones predefinidas y también crear las nuestras. En este caso hacemos una animación sobre el texto "INFORMÁTICA" con un keyframe definido en `@theme`.
+
+Resumen: en v4.1 puedes definir animaciones personalizadas en `@theme` y usarlas con `animate-*`.
+
+### Diseño responsive
+
+Ahora vamos a adaptar esa cabecera a los diferentes breakpoints y veremos cómo trabajar con responsive. Puedes revisarlo [aquí](https://tailwindcss.com/docs/responsive-design). En el ejemplo hemos puesto un borde para cada breakpoint.
+
+Nota: estos breakpoints son el equivalente a las media queries en CSS. La explicación base está en la unidad de layout (UD2) y en reglas CSS (UD3).
+
+```html
+<header
+  class="text-white bebas bg-black border-8 border-red-600 sm:border-yellow-400 md:border-green-600 lg:border-blue-600 xl:border-indigo-900 2xl:border-gray-700"
+></header>
+```
+
+Además podemos personalizar breakpoints desde CSS con `@theme`.
+
+```css
+@theme {
+  --breakpoint-xs: 30rem; /* 480px */
+}
+```
+
+Vamos a diseñar el menú para que el `nav` se coloque debajo en pantallas pequeñas. Para ello usamos `max-md:`.
+
+```html
+<div
+  class="container max-md:flex-col w-11/12 mx-auto flex flex-row items-center"
+></div>
+```
+
+Eso lo hemos conseguido con la clase `max-md:flex-col`, que cambia la dirección a columnas para pantallas de hasta `md`. También vamos a procurar que los elementos del nav ocupen todos el mismo espacio, para ello tenemos que añadir `max-md:flex-1` pero como lo tenemos como una componente lo debemos incluir en el apply.
+
+```css
+@layer components {
+  .menu-item {
+    @apply mr-5
+      ml-5
+      tracking-wider
+      max-md:flex-1;
+  }
+}
+```
+
+Resumen: móvil primero con variantes responsive (`sm:`, `md:`...) y ajustes por máximo con `max-*`.
+
+### Creación del main
+
+Ahora crearemos el `main` con artículos y `aside`. Cambiamos el HTML para practicar más utilidades, ya que la teoría base ya se ha explicado en los ejemplos anteriores.
+
+Comenzaremos con el siguiente código HTML después del `header` en donde hemos estado practicando.
+
+```html
+   <main class="container w-11/12 mx-auto mt-5 flex flex-row">
+      <aside id="lateral" class="order-2 basis-1/5">
+        <h3 class="aside-header">Buscar</h3>
+        <div
+          id="search"
+          class="w-11/12 h-7 m-2.5 mx-auto bg-white border border-gray-200 rounded shadow-inner"
+        >
+          <form action="">
+            <input
+              class="w-10/12 h-6 border-none pl-1.5 rounded-md bg-transparent text-gray-500 transition duration-300 outline-none focus:outline-none"
+              type="text"
+              name=""
+              id=""
+            /><input
+              type="button"
+              value="L"
+              class="symbol h-6 cursor-pointer text-base bg-transparent border-none text-gray-500 pl-2"
+            />
+          </form>
+        </div>
+        <h3 class="aside-header">LOGIN</h3>
+        <div id="login">
+          <form action="">
+            <label class="login-icon" for="">U</label
+            ><input class="login-input" type="email" name="" id="" />
+            <label class="login-icon mt-7" for="password">w</label>
+            <input class="login-input" type="password" name="password" id="" />
+            <input class="login-button" type="submit" value="Entrar" />
+            <input class="login-button ml-1" type="reset" value="Reiniciar" />
+            <a class="login-link" href="#"> Regístrate aquí</a>
+            <a class="login-link" href="#"> ¿Has olvidado la contraseña?</a>
+          </form>
+        </div>
+      </aside>
+      <!-- FIN DE LA BARRA lateral -->
+
+      <section class="basis-4/5 mr-10">
+        <h2 class="articles-header">Últimos artículos</h2>
+        <article class="article-item">
+          <div class="article-data">
+            <span class="m-2.5">Fecha:10</span
+            ><span class="m-2.5">Categorías</span>
+          </div>
+          <h4 class="article-title">
+            <a href="#">Título del artículo</a>
+          </h4>
+          <figure class="article-figure">
+            <img
+              class=""
+              src="./img/senthil-kumar-moorthy-bn5Upp6c5L4-unsplash (1).jpg "
+              alt="Tigre"
+            />
+          </figure>
+          <p class="article-description">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Est,
+            obcaecati accusamus facilis libero eveniet nemo architecto
+            recusandae excepturi optio explicabo dolore voluptate quasi numquam
+            dolorem repudiandae expedita similique saepe deserunt?
+          </p>
+        </article>
+
+        <article class="article-item">
+          <div class="article-data">
+            <span class="m-2.5">Fecha:10</span
+            ><span class="m-2.5">Categorías</span>
+          </div>
+          <h4 class="article-title"><a href="#">Título del artículo</a></h4>
+          <figure class="article-figure">
+            <img
+              class=""
+              src="./img/birger-strahl-bmjp_dwpoU8-unsplash.jpg"
+              alt="Tigre"
+            />
+          </figure>
+          <p class="article-description">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Est,
+            obcaecati accusamus facilis libero eveniet nemo architecto
+            recusandae excepturi optio explicabo dolore voluptate quasi numquam
+            dolorem repudiandae expedita similique saepe deserunt?
+          </p>
+        </article>
+
+        <article class="article-item">
+          <div class="article-data">
+            <span class="m-2.5">Fecha:10</span
+            ><span class="m-2.5">Categorías</span>
+          </div>
+          <h4 class="article-title"><a href="#">Título del artículo</a></h4>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Est,
+            obcaecati accusamus facilis libero eveniet nemo architecto
+            recusandae excepturi optio explicabo dolore voluptate quasi numquam
+            dolorem repudiandae expedita similique saepe deserunt?
+          </p>
+        </article>
+      </section>
+    </main>
+    <footer id="footer">
+      <div id="container">
+        <div id="info" class="footer-box">
+          <h5 class="footer-header">Desarrollado con</h5>
+          <p class="mb-6">
+            <img
+              class="block mx-auto"
+              src="img/html5-badge-h-css3-graphics-multimedia-performance-semantics.png"
+            />
+          </p>
+        </div>
+      </div>
+    </footer>
+```
+
+Lo primero es que nuestro `main` (contenedor) tenga estas clases para dejarlo centrado y con un ancho de ~91.67%. Además, usamos Flex para posicionar los hijos (`aside` y `section`).
+
+```html
+<main class="container w-11/12 flex flex-row mx-auto"></main>
+```
+
+Además vemos que el `aside` tiene que estar en el otro lado, por lo que le asignamos la clase `order-2`. Ahora queremos establecer un ancho del 20% en el `aside`, así que añadimos `basis-1/5`.
+
+```html
+<aside id="lateral" class="order-2 basis-1/5 mt-5"></aside>
+```
+
+Para identificar la `section` con los artículos le he puesto un borde y le he indicado con `basis-4/5` que ocupe el 80%.
+
+```html
+<section class="border-4 border-blue-600 basis-4/5 mr-10"></section>
+```
+
+Como puedes ver, se usa `flex-basis`. También podríamos usar `width` con porcentajes o `rem`, pero con `rem` la página tiende a ser menos fluida.
+
+Ahora vamos a tocar el título de los artículos. Creamos una clase en componentes llamada `articles-header` con sombra.
+En `styles.css` podemos declarar la sombra con `@theme` y luego aplicarla en la clase del componente.
+
+```html
+<h2 class="articles-header">Últimos artículos</h2>
+```
+
+```css
+@theme {
+  --shadow-header3D: 0px 1px #393d3f, 1px 2px 0px #393d3f, 2px 3px 0px #393d3f, 3px 4px 0px #393d3f;
+}
+```
+
+```css
+/* styles.css */
+.articles-header {
+  font-family: "BebasNeue";
+  @apply w-full h-16 text-center text-5xl tracking-widest pt-4 bg-slate-50 shadow-header3D font-medium;
+}
+```
+
+Para continuar con el tutorial y para hacer la actividad os voy a dejar la sombra aplicada al login, en formato v4 (`@theme`):
+
+```css
+@theme {
+  --shadow-box: 0px 0px 1px rgba(0, 0, 0, 0.3), 0px 3px 7px rgba(0, 0, 0, 0.3),
+    0px 1px white inset, 0px -3px 1px rgba(0, 0, 0, 0.3) inset;
+}
+```
+
+Después puedes reutilizarla directamente con la utilidad `shadow-box` o envolverla en un componente:
+
+```css
+@layer components {
+  .login-box {
+    @apply shadow-box;
+  }
+}
+```
+
+## Ampliación práctica (nivel intermedio)
+
+Esta parte amplía la unidad con patrones que se usan mucho en proyectos reales y que aparecen en la documentación oficial.
+
+### 0) Modelo mental de Tailwind v4 (5 min)
+
+- Tailwind solo genera clases que detecta en el código fuente.
+- `@theme` define tokens y esos tokens se convierten en utilidades.
+- `@layer components` se usa para componentes semánticos reutilizables.
+- `@utility` se usa para crear una utilidad nueva de bajo nivel, al estilo de las utilidades nativas.
+
+Relación rápida `@theme` -> utilidades:
+
+- `--color-*` -> `bg-*`, `text-*`, `border-*`, etc.
+- `--shadow-*` -> `shadow-*`.
+- `--breakpoint-*` -> variantes responsive.
+- `--animate-*` -> `animate-*`.
+
+### 1) Detección de clases: errores comunes y solución
+
+Tailwind genera utilidades a partir de clases detectadas literalmente en tus archivos. Si construyes clases dinámicas en JavaScript, pueden no generarse.
+
+```js
+// MAL: cadena dinámica difícil de detectar por el escaneo
+const color = "red";
+button.className = `bg-${color}-500 text-white`;
+```
+
+```js
+// BIEN: clases literales mapeadas
+const variants = {
+  danger: "bg-red-500 text-white",
+  success: "bg-green-500 text-white",
+};
+button.className = variants[state];
+```
+
+Además puedes forzar clases con `@source`:
+
+```css
+@source "./**/*.{html,js,ts}";
+@source inline("bg-red-500 bg-green-500 text-white");
+@source not "./legacy/**/*";
+```
+
+### 2) Variantes avanzadas (`group`, `peer`, `aria`, `data`)
+
+Además de `hover`, puedes reaccionar a estados del propio elemento o de elementos hermanos/padres.
+
+```html
+<label class="block">
+  <span class="mb-1 block text-sm">Email</span>
+  <input
+    class="peer w-full rounded border border-gray-300 p-2 focus-visible:outline-2 focus-visible:outline-azul-oscuro aria-invalid:border-red-600"
+    type="email"
+    aria-invalid="true"
+    placeholder="correo@dominio.com"
+  />
+  <span class="mt-1 hidden text-sm text-red-600 peer-aria-invalid:block">
+    Email no válido
+  </span>
+</label>
+```
+
+```html
+<button
+  data-state="open"
+  class="rounded bg-gray-200 px-3 py-2 data-[state=open]:bg-azul-claro disabled:cursor-not-allowed disabled:opacity-50"
+  disabled
+>
+  Menú
+</button>
+```
+
+#### `has-*` y descendientes de `group` (`group-has-*`)
+
+Dar estilo a un elemento según el contenido/estado de descendientes.
+
+- `has-*`: el elemento se estiliza si **sus propios descendientes** cumplen una condición.
+- `group-has-*`: un hijo se estiliza según descendientes del **padre con `group`**.
+- `peer-has-*`: un elemento se estiliza según descendientes de un **hermano con `peer`**.
+
+Ejemplo ):
+
+```html
+<article class="group rounded border p-4">
+  <h4 class="text-lg font-semibold">Perfil</h4>
+  <p class="text-sm text-gray-600">
+    Portafolio:
+    <a href="https://ejemplo.dev" class="underline">ejemplo.dev</a>
+  </p>
+
+  <!-- Solo se muestra si dentro del group existe un <a> -->
+  <span class="mt-2 hidden text-xs text-azul-oscuro group-has-[a]:inline-block">
+    Contiene enlace externo
+  </span>
+</article>
+```
+
+Otra variante útil con estado:
+
+```html
+<label class="peer block">
+  <input type="checkbox" checked />
+  Tarea completada
+</label>
+<p class="peer-has-checked:text-green-700">Estado: hecha</p>
+```
+
+### 3) Dark mode con clase o atributo
+
+Puedes trabajar con clase `.dark` o con atributo (`data-theme`), según el proyecto.
+
+```css
+@custom-variant dark (&:where(.dark, .dark *));
+@custom-variant theme-dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+```
+
+```html
+<main class="bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100">
+  <h2 class="text-2xl font-bold">Panel</h2>
+  <p class="theme-dark:text-gray-200">Texto adaptado a tema oscuro por atributo.</p>
+</main>
+```
+
+Mini toggle de 3 estados (`light`, `dark`, `system`) con `localStorage`:
+
+```html
+<select id="theme-switch" class="rounded border px-2 py-1">
+  <option value="system">Sistema</option>
+  <option value="light">Claro</option>
+  <option value="dark">Oscuro</option>
+</select>
+
+<script>
+  const key = "theme-preference";
+  const root = document.documentElement;
+  const control = document.getElementById("theme-switch");
+
+  function applyTheme(mode) {
+    const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const effectiveDark = mode === "dark" || (mode === "system" && systemDark);
+    root.classList.toggle("dark", effectiveDark);
+    root.dataset.theme = effectiveDark ? "dark" : "light";
+  }
+
+  const saved = localStorage.getItem(key) || "system";
+  control.value = saved;
+  applyTheme(saved);
+
+  control.addEventListener("change", (e) => {
+    const mode = e.target.value;
+    localStorage.setItem(key, mode);
+    applyTheme(mode);
+  });
+</script>
+```
+
+### 4) Responsive de componente con Container Queries
+
+Los breakpoints (`sm`, `md`, `lg`) dependen del viewport. Las container queries dependen del ancho del contenedor.
+
+```html
+<section class="@container">
+  <article class="flex flex-col gap-4 rounded border p-4 @md:flex-row">
+    <img class="h-40 w-full object-cover @md:w-48" src="./img/kartik-iyer-DJ4vjcD0s0I-unsplash.jpg" alt="Tigre" />
+    <div>
+      <h3 class="text-xl font-semibold">Artículo</h3>
+      <p>Este bloque cambia cuando su contenedor alcanza el breakpoint.</p>
+    </div>
+  </article>
+</section>
+```
+
+### 5) Accesibilidad y preferencias del usuario
+
+Reduce animaciones cuando el usuario lo pide y mejora foco visible para teclado.
+
+```html
+<span class="symbol animate-spin-slow motion-safe:animate-spin-slow motion-reduce:animate-none">S</span>
+
+<a
+  href="#"
+  class="rounded px-3 py-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-azul-oscuro"
+>
+  Ir al contenido
+</a>
+```
+
+Para alto contraste del sistema (Windows High Contrast, por ejemplo):
+
+```html
+<button class="forced-color-adjust-none border px-3 py-2">
+  Botón con ajuste de color controlado
+</button>
+```
+
+Checklist A11Y mínimo por componente:
+
+1. ¿Tiene estado de foco visible (`focus-visible:*`)?
+2. ¿Tiene contraste suficiente en texto/fondo?
+3. ¿Funciona sin animación (`motion-reduce:*`)?
+4. ¿Estados accesibles (`aria-*`, `disabled`, mensajes de error)?
+5. ¿Semántica correcta (`button`, `label`, `nav`, `main`, etc.)?
+
+### 6) Valores arbitrarios vs tokens (`@theme`)
+
+Usa valor arbitrario cuando sea puntual. Si se repite, conviértelo en token.
+
+```html
+<div class="max-w-[37ch] bg-[url('../img/pattern.png')] p-[18px]">Bloque puntual</div>
+```
+
+```css
+@theme {
+  --spacing-18: 4.5rem;
+  --background-image-card-pattern: url("../img/pattern.png");
+}
+```
+
+```html
+<div class="p-18 bg-card-pattern">Bloque reutilizable</div>
+```
+
+### 7) Preflight: qué resetea y cómo sobrescribir
+
+Tailwind aplica estilos base (Preflight). Si necesitas ajustar algo global, hazlo en `@layer base`.
+
+Qué notarás normalmente:
+
+- Márgenes por defecto de headings y párrafos se normalizan.
+- Los bordes quedan normalizados (incluyendo `border-style`).
+- Imágenes y medios se hacen más predecibles en layout responsive.
+
+```css
+@layer base {
+  h1, h2, h3 {
+    font-family: "BebasNeue", "Arial Narrow", sans-serif;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+```
+
+### 8) Mini proyecto final guiado
+
+Objetivo: construir una mini landing con `header`, `cards` y `form` aplicando todo lo visto.
+
+Requisitos mínimos:
+
+1. Header con logo animado y `group-hover` para pausar animación.
+2. Navegación responsive (`sm/md/lg`) y un bloque con `@container`.
+3. Formulario con validación visual `aria-invalid` + `peer-aria-invalid:block`.
+4. Modo oscuro por clase y por `data-theme`, con selector `light/dark/system`.
+5. Un ejemplo de `motion-reduce` y otro de `forced-color-adjust`.
+6. Un valor arbitrario y su equivalente tokenizado en `@theme`.
+7. Resolver un caso de depuración usando checklist de 5 pasos.
+
+Entrega recomendada:
+
+- `index.html`
+- `src/styles.css`
+- `css/output.css` (generado con CLI)
+- Capturas de escritorio + móvil
+
+### 9) Checklist rápido de debugging
+
+1. Verifica que la clase esté escrita literal en HTML/JS/CSS.
+2. Revisa rutas de `@source` si los archivos están fuera del escaneo automático.
+3. Confirma que el CSS enlazado en HTML es el compilado correcto.
+4. Comprueba orden/cascada (`@layer base/components/utilities`).
+5. Si la clase existe pero no se ve, inspecciona conflictos de especificidad en DevTools.
+
+## Resumen final de la unidad
+
+- `@import "tailwindcss"` + CLI es suficiente para empezar en v4.1.
+- `@theme` permite crear tokens (colores, sombras, breakpoints, animaciones y espaciados).
+- `@layer components` + `@apply` ayuda a evitar repetir clases largas.
+- `@source` resuelve casos donde el escaneo no detecta clases (rutas o clases dinámicas).
+- `@source not` permite excluir rutas de escaneo cuando no interesa incluirlas.
+- Variantes como `group`, `peer`, `aria`, `data` y `dark` cubren estados reales de UI.
+- `sm/md/lg` resuelve viewport, y `@container` resuelve responsive a nivel componente.
+- `motion-safe`, `motion-reduce`, `forced-color-adjust` y `focus-visible` refuerzan accesibilidad.

@@ -1,0 +1,143 @@
+site_name: DIWv4 · Diseño de interfaces web
+site_url:
+nav:
+  - Inicio: index.md
+  - El hilo del módulo: mapaModulo.md
+  - Información y evaluación: informacionModulo.md
+  - UD1 · Diseño:
+      - Recorrido de clase: UD1/guiaUnidad.md
+      - Objetivos y criterios: UD1/objetivos.md
+      - Planificación: UD1/planificación.md
+      - Estructura: UD1/Componentes de un interfaz web.md
+      - Principios visuales: UD1/elementosDiseño.md
+      - Color, tipografía e iconos: UD1/colorTipografíaIconos.md
+      - Figma y composición: UD1/EmpezarFigma.md
+      - Componentes: UD1/Componentes_Figma.md
+      - Mirada · Paso a paso: UD1/Ejemplo_Figma_Mirada.md
+      - Actividades: UD1/Actividades.md
+      - Apoyo · DesignPro: UD1/Tutorial_Figma_DesignPro.md
+  - UD2 · HTML y CSS inicial:
+      - Recorrido de clase: UD2/guiaUnidad.md
+      - HTML y formularios: UD2/html5.md
+      - Caja y flujo: UD2/conceptosBásicos.md
+      - Maquetación y consulta histórica: UD2/layout.md
+      - Verificación y SEO: UD2/seoVerificación.md
+      - A1 · Estructura y formulario: UD2/Actividades/Actividad1/EstructuraFloatTables.md
+      - A2 · Flexbox: UD2/Actividades/Actividad2/Flex.md
+      - A3 · Composición: UD2/Actividades/Actividad3/Actividad 3.md
+      - A4 · Grid: UD2/Actividades/Actividad4/Actividad 4.md
+      - A5 · Proyecto: UD2/Actividades/Actividad5/Actividad 5.md
+  - UD3 · CSS:
+      - Recorrido de clase: UD3/guiaUnidad.md
+      - Fundamentos: UD3/conceptos básicos.md
+      - Imágenes y efectos: UD3/conceptosAvanzados.md
+      - A1 · Selectores: UD3/Actividades/Actividad 1/Actividad 1.md
+      - A2 · Estados y adaptación: UD3/Actividades/Actividad 2/Actividad2.md
+      - A3 · Composición y movimiento: UD3/Actividades/Actividad 3/Actividad 3.md
+      - Proyecto: UD3/proyecto.md
+      - Ampliación · Flex: UD3/Actividades/Actividad 3/Actividad 4.md
+  - UD4 · Organización y Sass:
+      - Recorrido de clase: UD4/guiaUnidad.md
+      - Organización: UD4/metodologia.mkd
+      - Sass modular: UD4/sass_actual.mkd
+      - A1 · Nombres y compilación: UD4/Actividades/Actividad 1/Actividad 1.mkd
+      - A2 · Módulos: UD4/Actividades/Actividad 2/Actividad 2.mkd
+      - A3 · Refactorización: UD4/Actividades/Actividad 3/Actividad 3.mkd
+      - Proyecto: UD4/proyecto.md
+      - Consulta histórica:
+          - Sass anterior: UD4/sass.mkd
+          - Arquitectura anterior: UD4/metodologia_historica.mkd
+          - Ejercicios de sintaxis: UD4/Actividades/Actividad 2/Ejercicios_historicos.mkd
+          - Proyecto visual: UD4/Actividades/Actividad 3/Proyecto_historico.mkd
+  - UD5 · Tailwind:
+      - Recorrido de clase: UD5/guiaUnidad.md
+      - Teoría y ejemplos: UD5/tailwind.mkd
+      - Proyecto comparativo: UD5/proyecto.md
+  - Multimedia:
+      - Recorrido: Multimedia/guiaUnidad.md
+      - Taller y actividades: Multimedia/taller.md
+  - Accesibilidad:
+      - Recorrido: Accesibilidad/guiaUnidad.md
+      - Taller y actividades: Accesibilidad/taller.md
+  - Usabilidad:
+      - Recorrido: Usabilidad/guiaUnidad.md
+      - Taller y actividades: Usabilidad/taller.md
+  - Herramientas de apoyo:
+      - VS Code: VSCODE/ManejoVisualcode.md
+      - Git · Primeros pasos: GIT/introduccion.md
+      - Git · Trabajo cotidiano: GIT/manejoBasico.md
+      - GitHub: GIT/Introducción a GitHub.md
+      - Prácticas Git: GIT/Actividades.md
+theme:
+  name: material
+  icon:
+    admonition:
+      example: octicons/terminal-16
+    search: material/magnify
+  font:
+    text: Roboto
+    code: Roboto Mono
+  features:
+    # - navigation.sections
+    - navigation.top
+    - navigation.path
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+    - content.code.annotate
+    - content.code.copy
+    - toc.integrate
+  language: es
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+      primary: indigo
+      accent: purple
+    - scheme: slate
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+      primary: lime
+      accent: deep purple
+
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - admonition
+  - footnotes
+  - tables
+  - pymdownx.details
+  - pymdownx.mark
+  - pymdownx.keys
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+# El sitio publicado contiene únicamente el material para el alumnado.
+exclude_docs: |
+  **/node_modules/**
+  examenes/**
+  **/Guion_docente.md
+  **/figma-plugin/**
+  **/mirada-ud1.zip
+  **/guia.html
+  **/guion_clase_*.md
+  **/GUIA_CLASE.md
+  **/*_sol*/**
+  **/*_sol*
+hooks:
+  - herramientas/publicacion_hook.py
+extra:
+  audiencia: alumnado

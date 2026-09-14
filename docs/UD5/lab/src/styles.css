@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+/* Si Tailwind no detecta tus fuentes, fuerza rutas */
+@source "./**/*.html";
+@source "./src/**/*.{js,ts,jsx,tsx}";
+/* Ejemplo de safelist para clases dinámicas */
+@source inline("bg-red-500 bg-green-500 text-white");
+
+@custom-variant dark (&:where(.dark, .dark *));
+@custom-variant theme-dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+@theme {
+  --color-azul-claro: #84b6f4;
+  --color-azul-oscuro: #005187;
+
+  --color-brand: #1e40af;
+
+  --color-primary-50:  #eff6ff;
+  --color-primary-100: #dbeafe;
+  --color-primary-200: #bfdbfe;
+  --color-primary-300: #93c5fd;
+  --color-primary-400: #60a5fa;
+  --color-primary-500: #3b82f6;
+  --color-primary-600: #2563eb;
+  --color-primary-700: #1d4ed8;
+  --color-primary-800: #1e40af;
+  --color-primary-900: #172554;
+
+  --spacing-18: 4.5rem;
+  --background-image-card-pattern: url("../img/pattern.png");
+
+  --shadow-header3D: 0px 1px #393d3f, 1px 2px 0px #393d3f, 2px 3px 0px #393d3f, 3px 4px 0px #393d3f;
+  --shadow-box: 0px 0px 1px rgba(0,0,0,0.3), 0px 3px 7px rgba(0,0,0,0.3), 0px 1px white inset, 0px -3px 1px rgba(0,0,0,0.3) inset;
+
+  --animate-spin-slow: spin 3s linear infinite;
+  --animate-wiggle: wiggle 2s linear infinite;
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+
+@utility bg-body-pattern {
+  background-image: url("../img/pattern.png");
+}
+
+@layer base {
+  @font-face {
+    font-family: "BebasNeue";
+    src: url("../fonts/BebasNeue.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "WebSymbolsRegular";
+    src: url("../fonts/websymbols-regular-webfont.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  .bebas { font-family: "BebasNeue", "Arial Narrow", sans-serif; }
+  .symbol { font-family: "WebSymbolsRegular"; }
+}
+
+@layer components {
+  .menu-item {
+    @apply mr-5 ml-5 tracking-wider;
+  }
+
+  .menu-item-a {
+    @apply block transition duration-200 hover:text-azul-oscuro hover:scale-125;
+  }
+
+  .articles-header {
+    font-family: "BebasNeue", "Arial Narrow", sans-serif;
+    @apply w-full h-16 text-center text-5xl tracking-widest pt-4 bg-slate-50 shadow-header3D font-medium;
+  }
+
+  .login-box {
+    @apply shadow-box;
+  }
+
+  .demo-card {
+    @apply rounded-lg border border-slate-300 bg-white p-4 shadow-sm;
+  }
+}
+
+@utility btn-lab {
+  @apply px-4 py-2 rounded text-white transition-all bg-blue-500 hover:bg-blue-600;
+}

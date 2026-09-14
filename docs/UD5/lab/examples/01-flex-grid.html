@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ejemplo: Flex & Grid</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body class="bg-gray-200 p-10">
+    <h1 class="text-3xl font-bold mb-8">Demo: Flexbox vs Grid</h1>
+
+    <!-- FLEXBOX -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold mb-4 text-blue-700">Flexbox (Distribución Espacial)</h2>
+        <div class="flex flex-wrap gap-4 bg-white p-6 rounded shadow">
+            <div class="w-32 h-32 bg-red-400 flex items-center justify-center text-white font-bold rounded">1</div>
+            <div class="w-32 h-32 bg-green-400 flex items-center justify-center text-white font-bold rounded">2</div>
+            <div class="w-32 h-32 bg-yellow-400 flex items-center justify-center text-white font-bold rounded">3</div>
+            <div class="w-32 h-32 bg-purple-400 flex items-center justify-center text-white font-bold rounded">4</div>
+        </div>
+    </section>
+
+    <!-- GRID -->
+    <section>
+        <h2 class="text-xl font-semibold mb-4 text-indigo-700">Grid (Estructura Bidimensional)</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 bg-white p-6 rounded shadow">
+            <div class="h-32 bg-blue-500 flex items-center justify-center text-white font-bold rounded">A</div>
+            <div class="h-32 bg-orange-500 flex items-center justify-center text-white font-bold rounded">B</div>
+            <div class="h-32 bg-pink-500 flex items-center justify-center text-white font-bold rounded">C</div>
+            <div class="h-32 bg-teal-500 flex items-center justify-center text-white font-bold rounded">D</div>
+        </div>
+    </section>
+</body>
+
+</html>

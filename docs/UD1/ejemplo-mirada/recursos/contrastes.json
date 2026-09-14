@@ -1,0 +1,44 @@
+[
+  {
+    "texto": "ink",
+    "fondo": "paper",
+    "ratio": 13.37,
+    "minimo_ejercicio": 4.5,
+    "cumple": true
+  },
+  {
+    "texto": "white",
+    "fondo": "green",
+    "ratio": 7.74,
+    "minimo_ejercicio": 4.5,
+    "cumple": true
+  },
+  {
+    "texto": "error",
+    "fondo": "paper",
+    "ratio": 6.85,
+    "minimo_ejercicio": 4.5,
+    "cumple": true
+  },
+  {
+    "texto": "muted",
+    "fondo": "paper",
+    "ratio": 5.77,
+    "minimo_ejercicio": 4.5,
+    "cumple": true
+  },
+  {
+    "texto": "focus",
+    "fondo": "paper",
+    "ratio": 7.26,
+    "minimo_ejercicio": 4.5,
+    "cumple": true
+  },
+  {
+    "texto": "white",
+    "fondo": "hover",
+    "ratio": 10.94,
+    "minimo_ejercicio": 4.5,
+    "cumple": true
+  }
+]

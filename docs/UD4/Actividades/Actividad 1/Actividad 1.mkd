@@ -1,0 +1,9 @@
+# Metodología
+
+## Ejercicio 1
+
+Recodifica la página que te doy en los recursos para que tenga la metodología BEM. Si es necesario crea clases nuevas. Además añade un elemento nuevo. Este elemento será el logo que estará en la parte izquierda superior de header.
+
+## Ejercicio 2
+
+Sigue la instalación y compilación del taller de [Sass modular](../../sass_actual.mkd). Crea `aplicacion.scss` y compílalo desde la terminal. Como ampliación, investiga una extensión del editor y compara qué compilador y versión utiliza; no debe ser una dependencia obligatoria para reproducir la entrega.

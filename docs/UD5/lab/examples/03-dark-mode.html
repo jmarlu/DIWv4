@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es" class="light">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ejemplo: Dark Mode</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script>
+        function toggleDark() {
+            document.documentElement.classList.toggle('dark');
+        }
+    </script>
+</head>
+
+<body class="bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-500 p-12">
+
+    <div class="max-w-2xl mx-auto text-center">
+        <button onclick="toggleDark()"
+            class="mb-12 px-6 py-2 bg-indigo-600 text-white rounded-full font-bold hover:bg-indigo-700 shadow-lg shadow-indigo-500/30">
+            Cambiar Modo (Dark/Light)
+        </button>
+
+        <div
+            class="bg-slate-50 dark:bg-slate-900 p-10 rounded-3xl shadow-xl border border-slate-200 dark:border-slate-800">
+            <h1
+                class="text-4xl font-extrabold mb-4 bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent">
+                Modo Oscuro en Tailwind
+            </h1>
+            <p class="text-slate-600 dark:text-slate-400 text-lg mb-8">
+                Tailwind hace que el modo oscuro sea ridículamente fácil usando el modificador <code
+                    class="text-indigo-500">dark:</code>. Solo necesitas activar la clase en el HTML.
+            </p>
+
+            <div class="grid grid-cols-2 gap-4">
+                <div
+                    class="p-4 bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 text-left">
+                    <span class="block text-sm font-bold text-slate-400 mb-1">Usuario</span>
+                    <span class="font-medium text-slate-800 dark:text-white">@profesor_diweb</span>
+                </div>
+                <div
+                    class="p-4 bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 text-left">
+                    <span class="block text-sm font-bold text-slate-400 mb-1">Estado</span>
+                    <span class="inline-flex items-center gap-2 text-green-500 font-bold">
+                        <span class="w-2 h-2 bg-green-500 rounded-full animate-ping"></span>
+                        En línea
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

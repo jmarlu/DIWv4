@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tailwind v4.1 - Demo de Clase</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+  <body class="trebuchet">
+    <div class="mx-auto w-11/12 py-6">
+      <section class="mb-6 rounded-lg border border-slate-300 bg-white p-4">
+        <h1 class="mb-3 text-2xl font-bold">1) Utilidades básicas</h1>
+        <p class="bg-black p-5 m-5 border-8 border-indigo-500/50 text-center text-white">Hola Tailwind</p>
+        <p class="text-sm text-slate-600">Clases usadas: <code>bg-black text-white m-5 p-5 border-8 border-indigo-500/50 text-center</code></p>
+      </section>
+
+      <header class="bebas text-white bg-black border-8 border-red-600 sm:border-yellow-400 md:border-green-600 lg:border-blue-600 xl:border-indigo-900 2xl:border-gray-700 rounded">
+        <div class="container max-md:flex-col w-11/12 mx-auto flex flex-row items-center py-3">
+          <div class="flex-1" id="logo">
+            <div class="group overflow-hidden w-72 pt-1 pb-1 text-center tracking-wider transition duration-100 rounded-sm bg-azul-claro hover:text-black hover:bg-white">
+              <span class="symbol animate-spin-slow group-hover:animate-none block float-left text-3xl mt-1 ml-11">S</span>
+              <h3 class="block group-hover:text-lg group-hover:animate-mi-wiggle float-right text-4xl mt-1.5 mr-14">INFORMÁTICA</h3>
+            </div>
+          </div>
+
+          <nav class="flex-1">
+            <ul class="flex flex-row h-20 items-center justify-end text-2xl text-center mr-6 max-md:justify-center">
+              <li class="menu-item"><a class="menu-item-a" href="#">INICIO</a></li>
+              <li class="menu-item"><a class="menu-item-a" href="#">CONTACTO</a></li>
+              <li class="menu-item"><a class="menu-item-a" href="#">PERFIL</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <main class="container w-11/12 mx-auto mt-5 flex flex-row max-md:flex-col gap-4">
+        <aside class="order-2 basis-1/5 max-md:order-none max-md:basis-auto">
+          <h3 class="aside-header">Buscar</h3>
+          <div class="login-box">
+            <input class="login-input" type="text" placeholder="Buscar..." />
+          </div>
+
+          <h3 class="aside-header">Login</h3>
+          <div class="login-box">
+            <label class="text-sm">Email</label>
+            <input class="login-input" type="email" placeholder="correo@ejemplo.com" />
+            <label class="text-sm">Contraseña</label>
+            <input class="login-input" type="password" placeholder="******" />
+            <button class="login-button" type="button">Entrar</button>
+            <button class="login-button ml-1" type="button">Reiniciar</button>
+          </div>
+        </aside>
+
+        <section class="basis-4/5 max-md:basis-auto">
+          <h2 class="articles-header">Últimos artículos</h2>
+
+          <article class="article-item">
+            <div class="article-data"><span>Fecha: 13/02/2026</span><span>Categoría: CSS</span></div>
+            <h4 class="article-title">Artículo 1</h4>
+            <p class="article-description">Ejemplo de layout con <code>basis-1/5</code> y <code>basis-4/5</code>, y paso a columna con <code>max-md:flex-col</code>.</p>
+          </article>
+
+          <article class="article-item">
+            <div class="article-data"><span>Fecha: 13/02/2026</span><span>Categoría: Tailwind</span></div>
+            <h4 class="article-title">Artículo 2</h4>
+            <p class="article-description">Ejemplo de componente con <code>@layer components</code> y reutilización con <code>@apply</code>.</p>
+          </article>
+        </section>
+      </main>
+
+      <section class="mt-6 rounded-lg border border-slate-300 bg-white p-4 text-sm">
+        <h2 class="mb-2 text-lg font-semibold">3) Qué explicar en clase (resumen)</h2>
+        <ol class="list-decimal pl-5 space-y-1">
+          <li>Tailwind = utilidades rápidas; no componentes cerrados.</li>
+          <li>Setup mínimo v4.1: <code>@import "tailwindcss"</code> + CLI.</li>
+          <li><code>@theme</code> para tokens (colores, sombras, breakpoints, animaciones).</li>
+          <li><code>@layer components</code> + <code>@apply</code> para evitar repetir clases largas.</li>
+          <li>Responsive con prefijos (<code>sm:</code>, <code>md:</code>) y con <code>max-md:</code>.</li>
+        </ol>
+      </section>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+# Organizar CSS para poder cambiarlo
+
+La organización debe permitir localizar y modificar reglas sin efectos inesperados. Comienza con el CSS de tu proyecto de UD3.
+
+## 1. Diagnóstico
+
+Anota una repetición, una regla difícil de localizar y un selector demasiado acoplado a la estructura. Conserva una referencia visual antes de modificar.
+
+## 2. Nombres por responsabilidad
+
+BEM puede expresar bloque, elemento y modificador:
+
+```css
+.tarjeta { border: 1px solid var(--borde); }
+.tarjeta__titulo { font-size: 1.5rem; }
+.tarjeta--completa { background: var(--fondo-suave); }
+```
+
+No conviertas cada etiqueta en una clase sin motivo. Separa estado de disponibilidad de posición dentro de una cuadrícula. Otra convención es válida si está documentada y es consistente.
+
+## 3. Estructura proporcional
+
+```text
+src/
+  main.scss
+  base/_index.scss
+  componentes/_tarjeta.scss
+  tema/_index.scss
+```
+
+Añade carpetas cuando tengan responsabilidades reales. Un proyecto pequeño no necesita siete directorios vacíos. Usa módulos como se explica en [Sass actual](sass_actual.mkd).
+
+## 4. Refactorización verificable
+
+Cambia una parte cada vez, compila y comprueba páginas, estados y anchos. Una refactorización debe conservar el comportamiento previsto; explica por separado cualquier rediseño.
+
+Entrega un mapa breve de archivos y una decisión de organización. El [temario anterior de arquitectura](metodologia_historica.mkd) se conserva para comparar soluciones.

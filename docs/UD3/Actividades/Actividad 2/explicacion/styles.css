@@ -1,0 +1,66 @@
+#nuevoEjer7 {
+  background: hsl(100, 0%, 100%);
+  font-family: Avenir, sans-serif;
+  font-size: 1.5rem;
+  margin-top: 400px;
+  perspective: 1200px;
+}
+
+#nuevoEjer7 figure,
+#nuevoEjer7 figure img,
+#nuevoEjer7 figcaption {
+  width: 320px;
+  height: 244px;
+  box-sizing: border-box;
+}
+
+#nuevoEjer7 figure {
+  position: relative;
+  display: inline-block;
+  transform-style: preserve-3d;
+  font-size: 1.6rem;
+  margin: 20px;
+  transition: 1s all linear;
+  box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.3);
+}
+
+#nuevoEjer7 figure img,
+#nuevoEjer7 figcaption {
+  position: absolute;
+}
+
+#nuevoEjer7 figure figcaption {
+  top: 0;
+  transform: rotateY(0.5turn) translateZ(1px);
+  background: rgba(255, 255, 255, 0.9);
+  text-align: center;
+
+  opacity: 0.6;
+
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+}
+
+#nuevoEjer7 figure:hover {
+  transform: rotateY(180deg);
+}
+#nuevoEjer7 figure:hover figcaption {
+  opacity: 1;
+  transition: 1s 0.5s opacity;
+}
+
+#nuevoEjer7 figure:after {
+  position: absolute;
+  top: 100px;
+  content: " ";
+  display: block;
+  height: 8vw;
+  width: 100%;
+  transform: rotateX(90deg);
+  background-image: radial-gradient(
+    ellipse closest-side,
+    rgba(0, 0, 0, 0.05) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}

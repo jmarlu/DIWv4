@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind Lab - Proyección</title>
+    <!-- Enlazamos el CSS compilado -->
+    <link rel="stylesheet" href="./css/output.css">
+</head>
+<body class="bg-body-pattern">
+  <header class="bg-black text-white bebas">
+    <div class="container w-11/12 mx-auto flex max-md:flex-col flex-row items-center">
+      <div class="group flex-1" id="logo">
+        <div
+          class="group overflow-hidden w-72 pt-0.5 pb-0.5 text-center tracking-wider transition duration-100 rounded-sm bg-azul-claro hover:text-black hover:bg-white">
+          <span class="symbol animate-spin-slow group-hover:animate-none block float-left text-3xl mt-1 ml-11">S</span>
+          <h3 class="block group-hover:text-lg group-hover:animate-wiggle float-right text-4xl mt-1.5 mr-14">INFORMÁTICA</h3>
+        </div>
+      </div>
+      <nav class="flex items-center">
+        <ul class="flex max-md:flex-col">
+          <li class="menu-item"><a href="#" class="menu-item-a" >INICIO</a></li>
+          <li class="menu-item" ><a href="#" class="menu-item-a">CONTACTO</a></li>
+          <li class="menu-item"><a href="#" class="menu-item-a">PERFIL</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+   <main class="container w-11/12 mx-auto mt-5 flex flex-row">
+      <aside id="lateral" class="order-2 basis-1/5">
+        <h3 class="aside-header">Buscar</h3>
+        <div
+          id="search"
+          class="w-11/12 h-7 m-2.5 mx-auto bg-white border border-gray-200 rounded shadow-inner"
+        >
+          <form action="">
+            <input
+              class="w-10/12 h-6 border-none pl-1.5 rounded-md bg-transparent text-gray-500 transition duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
+              type="text"
+              name="q"
+              id="busqueda" aria-label="Buscar artículos"
+            /><input
+              type="button"
+              value="Buscar"
+              class="symbol h-6 cursor-pointer text-base bg-transparent border-none text-gray-500 pl-2"
+            />
+          </form>
+        </div>
+        <h3 class="aside-header">LOGIN</h3>
+        <div id="login">
+          <form action="">
+            <label for="correo-login">Correo</label
+            ><input class="login-input" type="email" name="email" id="correo-login" autocomplete="email" />
+            <label for="password">Contraseña</label>
+            <input class="login-input" type="password" name="password" id="password" autocomplete="current-password" />
+            <input class="login-button" type="submit" value="Entrar" />
+            <input class="login-button ml-1" type="reset" value="Reiniciar" />
+            <a class="login-link" href="#"> Regístrate aquí</a>
+            <a class="login-link" href="#"> ¿Has olvidado la contraseña?</a>
+          </form>
+        </div>
+      </aside>
+      <!-- FIN DE LA BARRA lateral -->
+
+      <section class="basis-4/5 mr-10">
+        <h2 class="articles-header">Últimos artículos</h2>
+        <article class="article-item">
+          <div class="article-data">
+            <span class="m-2.5">Fecha:10</span
+            ><span class="m-2.5">Categorías</span>
+          </div>
+          <h4 class="article-title">
+            <a href="#">Título del artículo</a>
+          </h4>
+          <figure class="article-figure">
+            <img
+              class=""
+              src="./img/kartik-iyer-DJ4vjcD0s0I-unsplash.jpg "
+              alt="Tigre"
+            />
+          </figure>
+          <p class="article-description">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Est,
+            obcaecati accusamus facilis libero eveniet nemo architecto
+            recusandae excepturi optio explicabo dolore voluptate quasi numquam
+            dolorem repudiandae expedita similique saepe deserunt?
+          </p>
+        </article>
+
+        <article class="article-item">
+          <div class="article-data">
+            <span class="m-2.5">Fecha:10</span
+            ><span class="m-2.5">Categorías</span>
+          </div>
+          <h4 class="article-title"><a href="#">Título del artículo</a></h4>
+          <figure class="article-figure">
+            <img
+              class="block mx-auto aspect-1/4"
+              src="./img/kartik-iyer-DJ4vjcD0s0I-unsplash.jpg"
+              alt="Tigre"
+            />
+          </figure>
+          <p class="article-description">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Est,
+            obcaecati accusamus facilis libero eveniet nemo architecto
+            recusandae excepturi optio explicabo dolore voluptate quasi numquam
+            dolorem repudiandae expedita similique saepe deserunt?
+          </p>
+        </article>
+
+        <article class="article-item">
+          <div class="article-data">
+            <span class="m-2.5">Fecha:10</span
+            ><span class="m-2.5">Categorías</span>
+          </div>
+          <h4 class="article-title"><a href="#">Título del artículo</a></h4>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Est,
+            obcaecati accusamus facilis libero eveniet nemo architecto
+            recusandae excepturi optio explicabo dolore voluptate quasi numquam
+            dolorem repudiandae expedita similique saepe deserunt?
+          </p>
+        </article>
+      </section>
+    </main>
+
+    <section class="container w-11/12 mx-auto mt-8 mb-8 space-y-6">
+      <h2 class="articles-header">Mejoras aplicadas</h2>
+
+      <article class="demo-card">
+        <h3 class="mb-3 text-xl font-semibold">Peer + ARIA + Focus Visible</h3>
+        <label class="block">
+          <span class="mb-1 block text-sm font-medium">Email</span>
+          <input
+            id="demo-email"
+            class="peer w-full rounded border border-gray-300 p-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-azul-oscuro aria-invalid:border-red-600"
+            type="email"
+            aria-invalid="true"
+            placeholder="correo@dominio.com"
+          />
+          <span class="mt-1 hidden text-sm text-red-600 peer-aria-invalid:block">
+            Email no válido
+          </span>
+        </label>
+      </article>
+
+      <article class="demo-card">
+        <h3 class="mb-3 text-xl font-semibold">Data Variant + Motion Reduce</h3>
+        <div class="flex flex-wrap items-center gap-4">
+          <button data-state="open" class="rounded bg-gray-200 px-3 py-2 data-[state=open]:bg-azul-claro">
+            Estado OPEN
+          </button>
+          <span class="symbol animate-spin-slow motion-reduce:animate-none text-2xl">S</span>
+          <a href="#footer" class="rounded px-3 py-2 border focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-azul-oscuro">
+            Ir al footer
+          </a>
+        </div>
+      </article>
+
+      <article class="demo-card dark">
+        <h3 class="mb-3 text-xl font-semibold dark:text-gray-100">Dark mode por clase</h3>
+        <div class="rounded p-4 bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100">
+          Este bloque reacciona a la clase <code>dark</code>.
+        </div>
+      </article>
+
+      <article class="demo-card" data-theme="dark">
+        <h3 class="mb-3 text-xl font-semibold">Dark mode por atributo</h3>
+        <p class="rounded p-4 bg-gray-100 text-gray-900 theme-dark:bg-gray-900 theme-dark:text-gray-100">
+          Este bloque reacciona a <code>data-theme="dark"</code>.
+        </p>
+      </article>
+
+      <article class="demo-card @container">
+        <h3 class="mb-3 text-xl font-semibold">Container Query</h3>
+        <div class="flex flex-col gap-4 rounded border p-4 @md:flex-row">
+          <img class="h-40 w-full object-cover @md:w-48" src="./img/kartik-iyer-DJ4vjcD0s0I-unsplash.jpg" alt="Tigre" />
+          <div>
+            <h4 class="text-lg font-semibold">Card adaptativa</h4>
+            <p>La disposición cambia según el ancho del contenedor, no del viewport.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="demo-card">
+        <h3 class="mb-3 text-xl font-semibold">Arbitrary values vs tokens</h3>
+        <div class="mb-4 max-w-[37ch] rounded border p-[18px] bg-[url('../img/pattern.png')]">
+          Uso puntual con valores arbitrarios.
+        </div>
+        <div class="max-w-[37ch] rounded border p-18 bg-card-pattern">
+          Uso repetible con tokens definidos en <code>@theme</code>.
+        </div>
+      </article>
+    </section>
+
+    <footer id="footer">
+      <div id="container">
+        <div id="info" class="footer-box">
+          <h5 class="footer-header">Desarrollado con</h5>
+          <p class="mb-6">
+            <img
+                         src="img/kartik-iyer-DJ4vjcD0s0I-unsplash.jpg"
+            />
+          </p>
+        </div>
+      </div>
+    </footer>
+
+
+</body>
+</html>

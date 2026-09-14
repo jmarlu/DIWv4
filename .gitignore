@@ -1,0 +1,7 @@
+/.venv/
+/site/
+/.local-docente/
+/materiales-docentes/
+**/node_modules/
+**/__pycache__/
+.cache/

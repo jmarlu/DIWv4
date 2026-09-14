@@ -1,0 +1,458 @@
+[
+  {
+    "id": "UD1",
+    "titulo": "Diseñar antes de implementar",
+    "entrada": "Tema, tareas y contenido inicial",
+    "entrega": "UD1-v1: brief, mapa, alternativas, sistema visual, componentes y prototipo",
+    "bloques": [
+      {
+        "id": "B01",
+        "titulo": "Problema y usuarios",
+        "recursos": [
+          "planificación.md"
+        ],
+        "actividad": "A3, A4, A8; abrir A21",
+        "trabajo": "Elige tema, dos perfiles ficticios y tres tareas. Acota una tarea principal.",
+        "evidencia": "Brief que distingue observación e hipótesis."
+      },
+      {
+        "id": "B02",
+        "titulo": "Contenido, estructura y mapa",
+        "recursos": [
+          "Componentes de un interfaz web.md"
+        ],
+        "actividad": "A5–A7",
+        "trabajo": "Prepara inventario de contenido, mapa y recorrido de una tarea.",
+        "evidencia": "Mapa y flujo diferenciados con páginas que tienen propósito."
+      },
+      {
+        "id": "B03",
+        "titulo": "Alternativas y principios visuales",
+        "recursos": [
+          "elementosDiseño.md"
+        ],
+        "actividad": "A1; bocetos y referencias de A21",
+        "trabajo": "Dibuja dos alternativas, compara orden de lectura y registra las referencias.",
+        "evidencia": "Dos bocetos distintos y motivo de elección."
+      },
+      {
+        "id": "B04",
+        "titulo": "Figma y retículas",
+        "recursos": [
+          "EmpezarFigma.md"
+        ],
+        "actividad": "A9 y A13",
+        "trabajo": "Crea frames amplio y estrecho; elige guías y comprueba permisos/exportación.",
+        "evidencia": "Archivo organizado, SVG y retícula razonada."
+      },
+      {
+        "id": "B05",
+        "titulo": "Tipografía y color",
+        "recursos": [
+          "colorTipografíaIconos.md"
+        ],
+        "actividad": "A2, A10 y A11; paleta de A12",
+        "trabajo": "Documenta roles, escala tipográfica y al menos tres contrastes.",
+        "evidencia": "Guía visual aplicada a contenido real."
+      },
+      {
+        "id": "B06",
+        "titulo": "Imágenes, máscaras y recortes",
+        "recursos": [
+          "EmpezarFigma.md"
+        ],
+        "actividad": "A12, A15 y A16",
+        "trabajo": "Registra procedencia; compara encuadres y prueba texto sobre imagen.",
+        "evidencia": "Original, máscara, crop, soft crop y comparación de legibilidad."
+      },
+      {
+        "id": "B07",
+        "titulo": "Componentes e instancias",
+        "recursos": [
+          "Componentes_Figma.md"
+        ],
+        "actividad": "Práctica de componentes; A21",
+        "trabajo": "Construye botón, tarjeta y campo; prueba normal, foco, disponibilidad y error.",
+        "evidencia": "Instancias que cambian al editar el componente y textos variables."
+      },
+      {
+        "id": "B08",
+        "titulo": "Principal amplia y estrecha",
+        "recursos": [
+          "Ejemplo_Figma_Mirada.md"
+        ],
+        "actividad": "A14; principal de A21",
+        "trabajo": "Monta ambas versiones con componentes. Explica qué reorganizas.",
+        "evidencia": "Contenido legible y orden coherente en ambos anchos."
+      },
+      {
+        "id": "B09",
+        "titulo": "Composición y estados del recorrido",
+        "recursos": [
+          "EmpezarFigma.md",
+          "Ejemplo_Figma_Mirada.md"
+        ],
+        "actividad": "A17–A19; pantallas secundarias de A21",
+        "trabajo": "Prueba superposición y tensión; dibuja detalle, error y confirmación cuando proceda.",
+        "evidencia": "Ensayos identificados y recorrido sin estados esenciales ausentes."
+      },
+      {
+        "id": "B10",
+        "titulo": "Prototipo y ensayo autónomo",
+        "recursos": [
+          "Ejemplo_Figma_Mirada.md"
+        ],
+        "actividad": "A20 breve; conexiones de A21",
+        "trabajo": "Enlaza la tarea; distingue navegación, cambio de variante y ventana superpuesta.",
+        "evidencia": "Recorrido utilizable y dos secciones de la app de chat con decisión propia."
+      },
+      {
+        "id": "B11",
+        "titulo": "Probar y corregir",
+        "recursos": [
+          "Actividades.md"
+        ],
+        "actividad": "A21 revisión; completar verificación de A8",
+        "trabajo": "Observa una tarea sin dar pistas, registra lo ocurrido y repite tras corregir.",
+        "evidencia": "Observaciones reales, antes/después y pendientes declarados."
+      },
+      {
+        "id": "B12",
+        "titulo": "Entregar y pasar a HTML",
+        "recursos": [
+          "Actividades.md"
+        ],
+        "actividad": "A21 entrega; comprobar índice A1–A21",
+        "trabajo": "Guarda UD1-v1, revisa permisos/exportaciones y prepara el contenido para UD2.",
+        "evidencia": "Entrega localizable y hoja de traspaso."
+      }
+    ]
+  },
+  {
+    "id": "UD2",
+    "titulo": "HTML y CSS inicial",
+    "entrada": "UD1-v1: contenido, mapa y prototipo",
+    "entrega": "UD2-v1: HTML conectado, formulario y CSS inicial",
+    "bloques": [
+      {
+        "id": "B01",
+        "titulo": "Del contenido a HTML",
+        "recursos": [
+          "html5.md"
+        ],
+        "actividad": "Estructura semántica del proyecto",
+        "trabajo": "Construye principal, detalle y contacto con títulos y enlaces descriptivos.",
+        "evidencia": "Contenido comprensible sin CSS y navegación funcional."
+      },
+      {
+        "id": "B02",
+        "titulo": "Formularios y verificación",
+        "recursos": [
+          "html5.md",
+          "seoVerificación.md"
+        ],
+        "actividad": "A1: contacto, tabla de datos y validación",
+        "trabajo": "Asocia etiquetas; prueba campos, orden Tab y restricciones nativas con datos ficticios.",
+        "evidencia": "Formulario comprobado y errores de validación corregidos."
+      },
+      {
+        "id": "B03",
+        "titulo": "Caja y flujo",
+        "recursos": [
+          "conceptosBásicos.md"
+        ],
+        "actividad": "A1: primera distribución",
+        "trabajo": "Relaciona margen, padding, ancho y flujo con tu prototipo.",
+        "evidencia": "Explicación de una caja en el inspector."
+      },
+      {
+        "id": "B04",
+        "titulo": "Flexbox y Grid",
+        "recursos": [
+          "layout.md"
+        ],
+        "actividad": "A2–A4",
+        "trabajo": "Resuelve navegación con Flexbox y tarjetas con Grid; compara los cambios al estrechar.",
+        "evidencia": "Prácticas más aplicación propia sin desbordamiento involuntario."
+      },
+      {
+        "id": "B05",
+        "titulo": "Integración",
+        "recursos": [
+          "Actividades/Actividad5/Actividad 5.md"
+        ],
+        "actividad": "A5 proyecto",
+        "trabajo": "Conecta el recorrido, conserva CSS inicial y registra qué mejorarás en UD3.",
+        "evidencia": "UD2-v1 con README, validación y dos tamaños comprobados."
+      }
+    ]
+  },
+  {
+    "id": "UD3",
+    "titulo": "CSS: sistema visual y adaptación",
+    "entrada": "UD2-v1 funcional",
+    "entrega": "UD3-v1: estilos, estados y revisión visual",
+    "bloques": [
+      {
+        "id": "B01",
+        "titulo": "Selectores y cascada",
+        "recursos": [
+          "conceptos básicos.md"
+        ],
+        "actividad": "A1: selectores y depuración",
+        "trabajo": "Aplica estilos sin aumentar la especificidad innecesariamente.",
+        "evidencia": "Selector explicado y una regla ganadora identificada con el inspector."
+      },
+      {
+        "id": "B02",
+        "titulo": "Sistema visual",
+        "recursos": [
+          "conceptos básicos.md"
+        ],
+        "actividad": "A1: fuentes, tablas y estados",
+        "trabajo": "Traduce paleta, tipografía y espaciado a variables CSS; revisa contraste.",
+        "evidencia": "Reglas compartidas aplicadas a las páginas del proyecto."
+      },
+      {
+        "id": "B03",
+        "titulo": "Estados y adaptación",
+        "recursos": [
+          "Actividades/Actividad 2/Actividad2.md"
+        ],
+        "actividad": "A2: taller nuevo",
+        "trabajo": "Construye tarjeta, campo y acción adaptables; comprueba teclado y mensajes.",
+        "evidencia": "Estados distinguibles y contenido largo sin pérdida."
+      },
+      {
+        "id": "B04",
+        "titulo": "Imágenes y movimiento",
+        "recursos": [
+          "conceptosAvanzados.md"
+        ],
+        "actividad": "A3: proyecto de viajes y ejercicios de animación",
+        "trabajo": "Prueba recortes y una transición útil; atiende movimiento reducido.",
+        "evidencia": "Comparación con/sin animación y justificación de uso."
+      },
+      {
+        "id": "B05",
+        "titulo": "Integración y revisión",
+        "recursos": [
+          "proyecto.md"
+        ],
+        "actividad": "Proyecto propio",
+        "trabajo": "Comprueba todas las páginas y documenta una corrección.",
+        "evidencia": "UD3-v1 y registro de pruebas reproducibles."
+      }
+    ]
+  },
+  {
+    "id": "UD4",
+    "titulo": "Organización y Sass modular",
+    "entrada": "CSS funcional de UD3",
+    "entrega": "UD4-v1: fuentes mantenibles y compilación documentada",
+    "bloques": [
+      {
+        "id": "B01",
+        "titulo": "Diagnóstico y nombres",
+        "recursos": [
+          "metodologia.mkd"
+        ],
+        "actividad": "A1: organización",
+        "trabajo": "Detecta repetición, aplica nombres consistentes y separa responsabilidades.",
+        "evidencia": "Cambio organizativo justificado, no carpetas vacías."
+      },
+      {
+        "id": "B02",
+        "titulo": "Compilar módulos",
+        "recursos": [
+          "sass_actual.mkd"
+        ],
+        "actividad": "Taller de módulos",
+        "trabajo": "Instala la versión de aula y compila el ejemplo de tarjeta.",
+        "evidencia": "CSS generado con un comando reproducible."
+      },
+      {
+        "id": "B03",
+        "titulo": "Variables, mixins y funciones",
+        "recursos": [
+          "sass_actual.mkd"
+        ],
+        "actividad": "A2: ejercicios de sintaxis con adaptación indicada",
+        "trabajo": "Usa módulos de Sass y distingue variables de compilación de custom properties.",
+        "evidencia": "Una reutilización útil explicada con su resultado CSS."
+      },
+      {
+        "id": "B04",
+        "titulo": "Refactorizar y comparar",
+        "recursos": [
+          "proyecto.md"
+        ],
+        "actividad": "A3: proyecto propio; ampliación visual histórica",
+        "trabajo": "Migra una parte del proyecto, comprueba el antes/después y registra cambios previstos.",
+        "evidencia": "UD4-v1 sin regresiones visuales o funcionales no justificadas."
+      }
+    ]
+  },
+  {
+    "id": "UD5",
+    "titulo": "Tailwind: implementar y comparar",
+    "entrada": "Proyecto CSS y dominio de layout/estados",
+    "entrega": "UD5-v1: componente equivalente con Tailwind y comparación",
+    "bloques": [
+      {
+        "id": "B01",
+        "titulo": "Entorno y utilidades",
+        "recursos": [
+          "tailwind.mkd"
+        ],
+        "actividad": "Instalación y tarjeta básica",
+        "trabajo": "Fija la versión de aula; relaciona cada utilidad con CSS conocido.",
+        "evidencia": "Compilación y tarjeta explicables."
+      },
+      {
+        "id": "B02",
+        "titulo": "Tema y reutilización",
+        "recursos": [
+          "tailwind.mkd"
+        ],
+        "actividad": "Cabecera y tarjetas",
+        "trabajo": "Traslada valores del sistema visual a tokens y prueba estados.",
+        "evidencia": "Tema coherente con el diseño propio."
+      },
+      {
+        "id": "B03",
+        "titulo": "Adaptación y accesibilidad",
+        "recursos": [
+          "tailwind.mkd"
+        ],
+        "actividad": "Teclado, ancho estrecho y preferencias",
+        "trabajo": "Conserva etiquetas, foco visible y estructura semántica al cambiar de tecnología.",
+        "evidencia": "Mismas tareas resueltas en la versión CSS y Tailwind."
+      },
+      {
+        "id": "B04",
+        "titulo": "Comparación final",
+        "recursos": [
+          "proyecto.md"
+        ],
+        "actividad": "Implementación equivalente",
+        "trabajo": "Compara código, repetición y facilidad de cambio sobre la misma sección.",
+        "evidencia": "UD5-v1 con limitaciones y decisión técnica razonada."
+      }
+    ]
+  },
+  {
+    "id": "Multimedia",
+    "titulo": "Preparar e integrar multimedia",
+    "entrada": "Proyecto y guía visual",
+    "entrega": "MM-v1: recursos transformados, atribución e integración",
+    "bloques": [
+      {
+        "id": "B01",
+        "titulo": "Elegir y documentar",
+        "recursos": [
+          "taller.md"
+        ],
+        "actividad": "MM1 inventario",
+        "trabajo": "Define la función de una imagen, un audio y un vídeo; registra origen y condiciones de uso.",
+        "evidencia": "Inventario con recursos utilizables y alternativas previstas."
+      },
+      {
+        "id": "B02",
+        "titulo": "Preparar y comparar",
+        "recursos": [
+          "taller.md"
+        ],
+        "actividad": "MM2 transformación",
+        "trabajo": "Recorta imagen, edita audio/vídeo y compara formatos, tamaño y calidad.",
+        "evidencia": "Originales y exportaciones documentadas."
+      },
+      {
+        "id": "B03",
+        "titulo": "Integrar y comprobar",
+        "recursos": [
+          "taller.md"
+        ],
+        "actividad": "MM3 integración",
+        "trabajo": "Añade medios al proyecto, controles y alternativas; comprueba dos navegadores disponibles.",
+        "evidencia": "Reproducción, alternativa textual y registro de límites reales."
+      }
+    ]
+  },
+  {
+    "id": "Accesibilidad",
+    "titulo": "Comprobar y mejorar accesibilidad",
+    "entrada": "Proyecto implementado",
+    "entrega": "ACC-v1: auditoría acotada, correcciones y nueva prueba",
+    "bloques": [
+      {
+        "id": "B01",
+        "titulo": "Planificar pruebas",
+        "recursos": [
+          "taller.md"
+        ],
+        "actividad": "ACC1 alcance",
+        "trabajo": "Selecciona páginas, tareas y criterios que vas a comprobar.",
+        "evidencia": "Alcance explícito, herramientas y matriz de comprobación."
+      },
+      {
+        "id": "B02",
+        "titulo": "Verificar manualmente",
+        "recursos": [
+          "taller.md"
+        ],
+        "actividad": "ACC2 teclado y contenido",
+        "trabajo": "Comprueba encabezados, etiquetas, foco, zoom y contraste; registra incidencias.",
+        "evidencia": "Problemas reproducibles, sin depender solo de una puntuación."
+      },
+      {
+        "id": "B03",
+        "titulo": "Corregir y repetir",
+        "recursos": [
+          "taller.md"
+        ],
+        "actividad": "ACC3 revisión",
+        "trabajo": "Corrige, repite el recorrido y documenta lo que no se ha comprobado.",
+        "evidencia": "Antes/después y límites de la evaluación."
+      }
+    ]
+  },
+  {
+    "id": "Usabilidad",
+    "titulo": "Observar tareas y mejorar",
+    "entrada": "Proyecto y tareas de UD1",
+    "entrega": "USA-v1: prueba, priorización y versión final",
+    "bloques": [
+      {
+        "id": "B01",
+        "titulo": "Diseñar la prueba",
+        "recursos": [
+          "taller.md"
+        ],
+        "actividad": "USA1 protocolo",
+        "trabajo": "Redacta tareas sin indicar dónde pulsar y define qué observarás.",
+        "evidencia": "Protocolo y criterio de éxito por tarea."
+      },
+      {
+        "id": "B02",
+        "titulo": "Observar",
+        "recursos": [
+          "taller.md"
+        ],
+        "actividad": "USA2 sesiones",
+        "trabajo": "Alterna participante/observador sin guiar; registra resultado y dudas con datos ficticios.",
+        "evidencia": "Observaciones diferenciadas de interpretación."
+      },
+      {
+        "id": "B03",
+        "titulo": "Revisar y presentar",
+        "recursos": [
+          "taller.md"
+        ],
+        "actividad": "USA3 mejora",
+        "trabajo": "Prioriza una dificultad, corrige y vuelve a observar la tarea.",
+        "evidencia": "Versión final y justificación de cambios."
+      }
+    ]
+  }
+]

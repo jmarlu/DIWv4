@@ -1,0 +1,14 @@
+{
+  "name": "tailwind-clase-proyecto",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Proyecto demo para explicar Tailwind CSS v4.1 en clase",
+  "scripts": {
+    "dev": "tailwindcss -i ./src/styles.css -o ./css/styles.css --watch",
+    "build": "tailwindcss -i ./src/styles.css -o ./css/styles.css --minify"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "4.1.18",
+    "tailwindcss": "4.1.18"
+  }
+}

@@ -1,0 +1,13 @@
+# Actividad 3 · Refactorizar el proyecto propio
+
+Recupera UD3-v1. Elabora UD4-v1 siguiendo el [proyecto de organización](../../proyecto.md).
+
+1. Guarda una referencia de páginas y estados.
+2. Identifica tres responsabilidades y distribuye las reglas en archivos con módulos.
+3. Centraliza valores comunes y añade un mixin solo si existe repetición útil.
+4. Compila desde una copia limpia de las dependencias declaradas.
+5. Repite las comprobaciones y explica cualquier diferencia visual intencionada.
+
+Entrega fuentes, salida CSS, archivo de bloqueo y registro antes/después. No es necesario construir una nueva web de viajes.
+
+El [proyecto visual anterior](Proyecto_historico.mkd), con cuadrícula, features y stories, se conserva como ampliación. Si lo realizas, usa la compilación modular actual y no lo presentes como entrega adicional obligatoria.

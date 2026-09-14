@@ -1,0 +1,79 @@
+# Sass modular · Taller actual
+
+Sass transforma fuentes SCSS en CSS. Las variables Sass se resuelven al compilar; las propiedades personalizadas CSS permanecen en la hoja y participan en la cascada del navegador.
+
+## Preparación
+
+En una carpeta de práctica con Node y npm disponibles:
+
+```bash
+npm init -y
+npm install --save-dev --save-exact sass@1.93.2
+```
+
+La versión es una referencia fijada de aula, no una afirmación de que sea la última. Conserva `package.json` y `package-lock.json`; en otra copia utiliza `npm ci`.
+
+## Crear los módulos
+
+Archivo `src/tema/_index.scss`:
+
+```scss
+$accion: #245c4d;
+$radio: .75rem;
+```
+
+Archivo `src/componentes/_tarjeta.scss`:
+
+```scss
+@use "../tema";
+@use "sass:color";
+
+.tarjeta {
+  border: 1px solid tema.$accion;
+  border-radius: tema.$radio;
+  padding: 1rem;
+  background: color.scale(tema.$accion, $lightness: 92%);
+  &__titulo { margin-block: 0 .5rem; }
+}
+```
+
+Archivo `src/main.scss`:
+
+```scss
+@use "componentes/tarjeta";
+```
+
+Compila y enlaza el CSS resultante desde un HTML:
+
+```bash
+npx sass src/main.scss css/main.css
+npx sass --watch src/main.scss:css/main.css
+```
+
+## Módulos y API compartida
+
+`@use` carga un módulo y permite acceder a sus miembros por un nombre. `@forward` reexporta miembros para organizar una entrada común. Cada archivo que necesita esos miembros declara su propio `@use`. [Documentación oficial](https://sass-lang.com/documentation/at-rules/use/).
+
+```scss
+// src/tema/_colores.scss
+$accion: #245c4d;
+// src/tema/_index.scss, alternativa al archivo inicial
+@forward "colores";
+$radio: .75rem;
+```
+
+## Funciones y reutilización
+
+Usa `@use "sass:math"` con `math.div()` para una división Sass y `@use "sass:color"` para operar con colores. Decide entre `color.adjust()` y `color.scale()` según quieras un ajuste absoluto o proporcional; no cambies funciones sin comparar el resultado.
+
+Crea un mixin cuando varias reglas repitan un patrón con parámetros. Antes de usar `@extend`, inspecciona el CSS que genera y comprueba si una clase compartida resulta más clara.
+
+## Migrar el material anterior
+
+El `@import` propio de Sass y las funciones globales están deprecados; esta observación no se aplica al `@import` de CSS ni al punto de entrada de Tailwind. [Cambios documentados por Sass](https://sass-lang.com/documentation/breaking-changes/import/).
+
+Conservamos [el temario anterior](sass.mkd). Al ensayar sus ejemplos, sustituye las dependencias globales por módulos, actualiza funciones y compara el CSS. El objetivo no es silenciar avisos, sino entender las dependencias.
+
+## Comprobación
+
+Cambia el color de acción, recompila y localiza el cambio. Explica por qué el navegador recibe CSS y no SCSS. Guarda el comando, versión utilizada y una comparación antes/después.

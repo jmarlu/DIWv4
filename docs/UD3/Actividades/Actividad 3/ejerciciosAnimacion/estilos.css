@@ -1,0 +1,300 @@
+/*para eliminar todos lo bordes puntuados*/
+
+a:active, a:active * { outline: none !important; -moz-outline-style: none !important; }
+a:focus, a:focus * { outline: none !important; -moz-outline-style: none !important; }
+section{
+    margin-bottom:100px;
+}
+
+#navegacion li { 
+    list-style: none;
+    display: inline-block;
+ } 
+ #navegacion a { 
+    display: block; 
+    float: left; 
+    width: 100px; 
+    padding: 3px; 
+    margin-right: 20px; 
+    border: 1px solid #333; 
+    background-color: lightyellow; 
+    text-align: center; 
+    color: black; 
+    text-decoration: none; 
+    /* Las transiciones */ 
+    -webkit-transition: background-color 1s linear, color 1s linear; 
+    transition: background-color 1s linear, color 1s linear; 
+    
+ } 
+ #navegacion a:hover { 
+    background-color: darkblue; 
+    color: white; 
+ } 
+
+ /*ejercicio2*/
+
+ #navegacion2 li { 
+    list-style: none;
+    display: inline-block;
+    border: none;
+   
+ } 
+ #navegacion2 a { 
+    display: block; 
+    float: left; 
+    width: 100px; 
+    padding: 3px; 
+   
+   
+    text-align: center; 
+    color: black; 
+    text-decoration: none; 
+    -webkit-transition: border-left 0.5s linear; 
+    transition: border-left 0.5s linear;
+    
+ } 
+ #ejer2 li:nth-of-type(1) a:focus{
+
+     border-left: 9px solid blue;
+
+ }
+ 
+ #ejer2 li:nth-of-type(2) a:focus{
+    border-left: 9px solid orange;
+    
+}
+#ejer2 li:nth-of-type(3) a:focus{
+    border-left:9px solid red;
+    
+}
+
+/*ejercicio 3 imagenes y captions(todavia transitions */
+
+#ejer3 figure { float: left; margin-top: 50px; }
+#ejer3 figure, #ejer3 figure img { width: 500px; height: 333px; }
+#ejer3 figcaption {
+font-family: Baskerville, "Baskerville Old Face", Garamond, "Times New Roman", serif;
+font-style: italic; background: rgba(0,0,0,0.4);
+font-size: 2rem; padding: 0.8rem; color: #fff;
+position: relative; bottom: 400px;
+-webkit-transition: bottom 2s;
+transition: bottom 2s;
+}
+
+#ejer3 figure:hover figcaption { bottom: 340px; }
+
+
+/* ejercicio 4  primera manera background*/
+.separation{
+    clear:  both;
+}
+.crossfade { 
+   
+    background: url(./imagenes/luis-poletti-17300.jpg);
+    background-size: cover;
+    background-position: center; 
+}
+.crossfade, .crossfade img { width: 418px; height: 500px; }
+.crossfade img { -webkit-transition: 3s opacity ease-out; transition: 3s opacity ease-out; }
+.crossfade img:hover { opacity: 0; }
+/*ejercicio 4. Segunda manera */
+
+.crossfade2 { position: relative; }
+.crossfade2, .crossfade2 img { width: 418px; height: 500px; }
+.crossfade2 img:nth-child(2) { position:absolute; left:0; top:0; 
+    transition:3s opacity cubic-bezier(.45,.05,.55,.95); }
+.crossfade2 img:nth-child(2):hover { opacity: 0; }
+
+
+/* ejercicio 4  Tercera manera, dos imagenes.*/
+
+.crossfade3 
+{ 
+    width: 418px; 
+    height: 500px; 
+    background-image: url(imagenes/luis-poletti-17300.jpg) ;
+    background-size: cover;
+    background-position: center;
+    transition: background-image  3s ease-out;
+    
+}
+.crossfade3:hover { 
+    background-image: url(imagenes/luca-bravo-149740.jpg);
+    background-size: cover;
+    background-position: center; }
+
+
+ /*Ejercicio 5 pequeña gallery*/
+    #gallery{
+        background: #234;
+    }
+    #gallery ul li {
+        list-style: none;
+    }
+    .gallery { position: relative; }
+    .gallery li:nth-child(odd) img { width: 150px; height: 150px; margin: 2.2em; }
+    .gallery li:nth-child(even) img{
+        width: 400px; height: 400px; margin: 2.2em;
+    }
+    
+    /* .gallery li:nth-child(odd):hover + li{ opacity: 1; } */
+
+li#thomas:target, li#vladimir:target{
+    opacity: 1;
+}
+
+.gallery li:nth-child(even) { 
+    position: absolute; left: 500px; 
+    top: 2.2em; 
+    opacity: 0; 
+    -webkit-transition: 1s opacity linear;
+    -moz-transition: 1s opacity linear;
+    transition: 1s opacity linear;
+}
+
+/*ejercicio 6 LIGHTBOX*/
+#ejer6{
+    background: #234;
+    position: relative;
+    height: 600px;
+}
+.galleryLightBox{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+#ejer6 ul li:nth-child(odd) img{
+    max-width: 100%;
+}
+
+#ejer6 ul li {
+    list-style: none;
+}
+#ejer6 ul li:nth-child(odd){
+    width: 150px; 
+    margin: 2.2em;
+    
+}
+
+#ejer6 ul li:nth-child(even){
+   
+    margin-left: 0; 
+    background: rgba(0,0,0,0);
+    position: absolute; 
+    top: 0; 
+    bottom: 0;
+    width: 100%; 
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;  
+}
+#ejer6 li a { 
+    background: #fff; 
+    display: block; 
+    transition: 4s all ease-in;
+ }
+ @keyframes blowup {
+    0% { width: 0; height: 0; opacity: 0; }
+    30% { width: 340px; height: 0; opacity: 0; }
+    60% { width: 340px; height: 280px; opacity: 0; margin: 20px; }
+    100% { width: 340px; height: 280px; opacity: 1; margin: 20px; }
+    }
+
+  #ejer6  li:nth-child(even):target {
+        visibility: visible; 
+        background: rgba(0,0,0,0.6);
+        transition: 2s background linear;
+        }
+        #ejer6  li:nth-child(even):target a { 
+            box-shadow: 0 0 8px 8px rgba(0,0,0,0.3); 
+        }
+
+        #ejer6 li:nth-child(even):target img {
+            
+             animation: blowup 3s forwards;
+             }
+
+             #ejer6:target li:nth-child(even):target {
+                background: rgba(0,0,0,0); 
+                transition: 1.5s background ease-out;
+             }
+
+
+/*ejercicio 7 animación sobre el caption*/
+  /* .clapperboard { position: relative; }
+.clapperboard figcaption 
+{ position: absolute; top: 0; left: 0; padding: 2rem; }
+.clapperboard img, .clapperboard figcaption 
+{ width:618px;height:515px; }
+figure.clapperboard figcaption p { 
+    font-size: 2rem; display: block; margin-bottom: 2rem;
+ }
+
+figure.clapperboard figcaption { 
+    font-family: Futura, Arial, sans-serif;
+    font-weight: 100; font-style: italic; color: black;
+    box-sizing: border-box;
+    font-size: 1.2rem; padding: 2rem; padding-top: 8rem;
+    border: 2px solid black;
+    transform-origin: bottom right; 
+    transform: rotate(90deg);
+    }
+  figure.clapperboard:hover figcaption {
+        transform: rotate(0);
+        opacity: 1;
+        background: rgba(0,0,0,0.6);
+        transition: transform 2s cubic-bezier(.12,.49,.17,.87), background .9s linear 2.2s;
+        } */
+
+/* Ejercicio 7*/
+        #nuevoEjer7 { 
+            background: hsl(100,0%,100%); font-family: Avenir, sans-serif; font-size: 1.5rem;
+            margin-top: 400px;
+            perspective: 1200px;
+        }
+
+          
+    #nuevoEjer7 figure { 
+            position: relative;
+            display: inline-block;
+            transform-style: preserve-3d;
+            font-size: 1.6rem;  
+            margin: 20px; 
+            transition: 1s all linear;
+            box-shadow: 0px 0px 16px rgba(0,0,0,0.3);
+            
+         }
+          #nuevoEjer7 figure, #nuevoEjer7 figure img, #nuevoEjer7 figcaption { 
+              width: 320px; height: 244px; box-sizing: border-box; }
+          #nuevoEjer7 figure img, #nuevoEjer7 figcaption {
+               position: absolute; }
+          #nuevoEjer7 figure figcaption {
+            top: 0;
+            transform: rotateY(.5turn) translateZ(1px);
+            background: rgba(255,255,255,0.9);
+            text-align: center;
+           
+            opacity: 0.6;
+            transition: 1s .5s opacity;
+            -webkit-backface-visibility: hidden;
+            -moz-backface-visibility:    hidden;
+            -ms-backface-visibility:     hidden;
+          }
+          #nuevoEjer7 figure:hover { 
+              transform: rotateY(180deg);
+             }
+          #nuevoEjer7 figure:hover figcaption {
+            opacity: 1;
+        }
+        #nuevoEjer7    figure:after {
+            position: absolute;
+            top:100px;
+            content: " ";
+            display: block;
+            height: 8vw;
+            width: 100%;
+            transform: rotateX(90deg);
+            background-image: radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0) 100%); 
+        }

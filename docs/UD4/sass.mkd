@@ -1,0 +1,1690 @@
+!!! note "Sass: material histórico"
+
+    Aquí se conserva el temario anterior. Para construir el proyecto de clase utiliza [Sass modular](sass_actual.mkd). Las importaciones Sass y funciones globales de estos ejemplos requieren adaptación al sistema de módulos.
+
+# SASS
+
+## Introducción
+
+Sass es una extensión de CSS que añade potencia. Se permite el uso de variables, reglas anidadas, mixins, las importaciones en línea, y más, todo con una sintaxis totalmente compatible con CSS. Sass ayuda a mantener grandes hojas de estilo bien organizados, y obtener pequeñas hojas de estilo en marcha rápidamente. Sass permite organizar mejor las hojas de estilos grandes y permite ser mucho más productivo con las hojas de estilos pequeñas, sobre todo gracias a la librería Compass.
+
+## Sintaxis
+
+Sass permite el uso de dos sintaxis diferentes para crear sus archivos:
+
+- La primera, conocida como SCSS (del inglés, Sassy CSS) es en la que nos vamos a centrar ahora y es una extensión de la sintaxis de CSS3. Esto significa que cualquier hoja de estilos CSS3 válida también es un archivo SCSS válido.
+  Los archivos creados con esta sintaxis utilizan la extensión `.scss`.
+- La segunda sintaxis, conocida como **"sintaxis indentada"** o simplemente "sintaxis sass" permite escribir los estilos CSS de manera más concisa. En este caso, el anidamiento de selectores se indica con tabulaciones en vez de con llaves y las propiedades se separan con saltos de línea en vez de con puntos y coma. Los archivos creados con esta segunda sintaxis utilizan la extensión .sass.
+  **Archivo scss**
+
+```scss
+$main: #444;
+.btn {
+  color: $main;
+  display: block;
+}
+.btn-a {
+  color: lighten($main, 30%);
+  &:hover {
+    color: lighten($main, 40%);
+  }
+}
+```
+
+**Archivo css**
+
+```css
+.btn {
+  color: #444444;
+  display: block;
+}
+.btn-a {
+  color: #919191;
+}
+.btn-a:hover {
+  color: #aaaaaa;
+}
+```
+
+## Instalar Sass
+
+Para la instalación de Sass en cualquier sistema podemos visitar el siguiente [link](https://sass-lang.com/install). Pero si utilizamos Visual Code, ésta utiliza una extensión que nos permite realizar la transpilación de código sass a css de forma automática. La extensiones que tienes que instalar son las siguientes:
+
+- Live Sass Compiler.
+- Sass
+
+## Comentarios
+
+Sass también soporta los comentarios de una única línea que utilizan los delimitadores // además de los delimitadores `/* y /*` que pueden ocupar una o más líneas que estaban aceptados ya.
+
+**Comentarios sass**
+
+```scss
+// Estos comentarios no
+// saldrán en los ficheros
+// css compilados
+/* este saldrá */
+```
+
+**Comentarios css**
+
+```css
+/*este saldrá */
+```
+
+## La regla `@import`
+
+La regla css @import se ha mejorado previene la descarga paralela. Los archivos importados se buscan automáticamente en el directorio actual.
+
+- La importación con .scss o .sass sucede durante la compilación en lugar de en
+  el lado del cliente.
+- La extensión del archivo es opcional.
+
+```scss
+// Importa estilos encontrados en ‘boto.scss’
+// Cuando el compilador procese aplicación.scss
+@import “buttons”;
+```
+
+![ficheros](img/ficheros.png)
+
+## Hojas de estilos parciales
+
+Si quieres importar un archivo SCSS o Sass pero no quieres que se compile como archivo CSS, utiliza un guión bajo como primer carácter del nombre del archivo. De esta manera, Sass no generará un archivo CSS para esa hoja de estilos, pero podrás utilizarla importándola dentro de otra hoja de estilos. Este tipo de archivos que no se compilan se denominan "hojas de estilos parciales" o simplemente "parciales" (en inglés, "partials").
+
+![ficheros2](img/ficheros2.png)
+
+## Anidando selectores
+
+Cuando escribimos código HTML podemos observar que tiene una clara disposición jerárquica de manera anidada, por otro lado CSS no lo hace.
+
+Sass permite anidar los selectores CSS de manera que sigue la misma jerárquica visual de HTML. Hay que tener en cuenta que las reglas demasiado anidadas resultan ser difícil de mantener y se considera una mala práctica. Vamos a ver un ejemplo:
+
+**Anidamiento sass**
+
+```scss
+.content {
+  border: 1px solid #ccc;
+  padding: 20px;
+  H2 {
+    font-size: 3em;
+    margin: 20px 0;
+  }
+  p {
+    font-size: 1.5em;
+    margin: 15px 0;
+  }
+}
+```
+
+**Resultado css**
+
+```css
+.content {
+  border: 1px solid #ccc;
+  padding: 20px;
+}
+.content h2 {
+  font-size: 3em;
+  margin: 20px 0;
+}
+.content p {
+  font-size: 1.5em;
+  margin: 15px 0;
+}
+```
+
+¿Cual será la CSS del siguiente código?
+
+```scss
+nav {
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  li {
+    display: inline- block;
+  }
+  a {
+    display: block;
+    padding: 6px 12px;
+    text-decoration: none;
+  }
+}
+```
+
+Además, podemos anidar ciertas propiedades con coincidencias en el nombre de la propiedad, de la siguiente manera. Veamos un ejemplo:
+
+```scss
+.btn
+{
+text: {
+decoration: underline;
+transform: lowercase;
+}
+```
+
+**Resultado css**
+
+```css
+.btn {
+  text-decoration: underline;
+  text-transform: lowercase;
+}
+```
+
+## El selector padre &
+
+Cuando estemos anidando los elementos podemos utilizar el siguiente & símbolo haciendo referencia al padre. Vemos el siguiente ejemplo:
+
+```scss
+.content {
+  border: 1px solid #ccc;
+  padding: 20px;
+  .callout {
+    border-color: red;
+  }
+  &.callout {
+    // Hacer referencia a .content
+    border-color: green;
+  }
+}
+```
+
+**Resultado css**
+
+```css
+.content {
+  border: 1px solid #ccc;
+  padding: 20px;
+}
+.content .callout {
+  border-color: red;
+}
+.content.callout {
+  border-color: green;
+}
+```
+
+Otro ejemplo muy utilizado es el siguiente:
+
+```scss
+a {
+  color: #999;
+  &:hover {
+    color: #777;
+  }
+  &:active {
+    color: #888;
+  }
+}
+```
+
+**Resultado css**
+
+```css
+a {
+  color: #999;
+}
+a:hover {
+  color: #777;
+}
+a:active {
+  color: #888;
+}
+```
+
+Además, los selectores pueden ser añadidos antes del símbolo &:
+
+```scss
+.sidebar {
+  float: right;
+  width: 300px;
+}
+.users & {
+  .users .sidebar {
+    width: 400px;
+  }
+}
+```
+
+**Resultado css**
+
+```css
+.sidebar {
+  float: right;
+
+  width: 300px;
+}
+
+.users .sidebar {
+  width: 400px;
+}
+```
+
+El padre hace referencia según el contexto dónde esta incluido. Vamos a ver un ejemplo.
+
+```scss
+.sidebar {
+  float: right;
+  width: 300px;
+  h2 {
+    color: #777;
+    .users & {
+      color: #444;
+    }
+  }
+}
+```
+
+**Resultado css**
+
+```css
+.sidebar {
+  float: right;
+  width: 300px;
+}
+.users .sidebar h2 {
+  width: 400px;
+}
+```
+
+El anidamiento como acabamos de observar es muy fácil. Pero como dijimos anteriormente es muy peligroso. Un anidamiento innecesario incrementa demasiado la especificidad de los selectores. Aquí tenemos un ejemplo.
+
+```scss
+.content {
+  background: #ccc;
+  .cell {
+    h2 {
+      a {
+        &:hover {
+          color: red;
+        }
+      }
+    }
+  }
+}
+```
+
+**Resultado css**
+
+```css
+.content {
+  background: #ccc;
+}
+.content .cell h2 a:hover {
+  color: red;
+}
+```
+
+Como podemos observar en el css, tenemos un cuarto nivel de especificidad. Esto puede ser muy difícil de anular posteriormente. Deberemos tratar de limitar su anidamiento a tres o cuatro niveles de profundidad. Si pasamos este limite, deberemos pensar en crear nuevas clases o refactorizar el nivel de profundidad.
+
+## Variables
+
+En esta sección veremos los tipos de variables, el ámbito de las variables y el concepto de interpolación.
+El soporte nativo de variables en CSS esta todavía en desarrollo pero Sass nos permite una manera de asignar valores **reutilizables**. Los nombres de las variables empiezan con `$`, como `$base`.
+
+Veamos un ejemplo:
+
+```sass
+$base: #777777;
+.sidebar {
+border: 1px solid
+border: 1px solid $base;
+}
+```
+
+**Resultado css**
+
+```css
+.sidebar {
+  border: 1px solid #777777;
+}
+.sidebar p {
+  color: #777777;
+}
+```
+
+Las variables en su definición pueden opcionalmente tener el flag `!default`. De tal manera que cuando dos variables con el mismo nombre y distintos valores, aquella que tenga el flag será el valor por defecto. Vamos a ver un ejemplo:
+
+```sass
+$title: 'Mi blog';
+$title: 'Sobre mi' ;
+
+ h2:before {
+content: $title;
+}
+```
+
+**Resultado css**
+
+```css
+h2:before {
+  content: "Sobre mi";
+}
+```
+
+Acabamos de observar en el ejemplo de arriba que el valor de la variable se sobre escribe. Sin embargo, si ponemos el flag o indicador `!default` a la segunda variable, este será el valor por defecto pero no sobrescribirá el valor de la anterior.
+
+```sass
+$title: 'Mi blog';
+$title: 'Sobre mi' !default ;
+
+ h2:before {
+content: $title;
+}
+```
+
+**Resultado css**
+
+```css
+h2:before {
+  content: "Mi blog";
+}
+```
+
+Que sucede cuando utilizamos este indicador en otros archivos scss importados. Una práctica bastante buena es utilizar lo valores por defecto en los archivos importados. Si después queremos definir un valor diferente al que tenemos en el archivo importado colocaremos el valor antes de la importación del archivo. Veamos un ejemplo.
+
+```sass
+//aplicacion.scss
+$rounded: 5px;
+@import "buttons";
+```
+
+Mientras buttons.scss será:
+
+```sass
+$rounded: 3px !default;
+.btn-a {
+border-radius: $rounded;
+color: #777;
+}
+.btn-b {
+border-radius: $rounded;
+color: #222;
+}
+```
+
+**Resultado css**
+
+```css
+.btn-a {
+  border-radius: 5px;
+  color: #777;
+}
+.btn-b {
+  border-radius: 5px;
+  color: #222;
+}
+```
+
+### Tipos de variables
+
+Hay diferentes tipos de variables como:
+
+#### Booleans
+
+```sass
+$rounded: false;
+$shadow: true;
+```
+
+#### Números.
+
+Que puede estar definidos con sus unidades o no.
+
+```sass
+$rounded: 4px;
+$line-height: 1.5;
+$font-size: 3rem;
+```
+
+#### Colores
+
+```sass
+$base: purple;
+$border: rgba(0, 255, 0, 0.5);
+$shadow: #333;
+```
+
+#### Cadenas
+
+Que pueden tener o no comillas
+
+```sass
+$header: 'Helvetica Neue';
+$callout: Arial;
+$message: "Loading...";
+```
+
+#### Listas.
+
+Los valores pueden estar separados con comas o con espacios.
+
+```sass
+$authors: nick, dan, aimee, drew;
+$margin: 40px 0 20px 100px;
+```
+
+#### Null
+
+```sass
+$shadow: null;
+```
+
+### Ámbito (scope) de las variables
+
+El ámbito de las variables va ha depender del lugar donde las declaremos. Si declaramos una variable dentro del selector ese será su ámbito de utilización.
+Ejemplo:
+
+```sass
+p {
+$border: #ccc;
+border-top: 1px solid $border;
+}
+h1 {
+border-top: 1px solid $border;
+}
+
+```
+
+Si compilamos el ejemplo anterior, nos proporcionará error de sintaxis. Dado que, la variable `$border` sólo está definida para `p`.
+Además, si definimos nuevos valores fuera de la declaración cambia el futuro valor.
+
+```sass
+$color-base: #777777;
+.sidebar {
+	$color-base: #222222;
+	background: $color-base;
+	}
+p {
+	color: $color-base;
+}
+```
+
+**Resultado css**
+
+```css
+.sidebar {
+  background: #222222;
+}
+p {
+  color: #222222;
+}
+```
+
+Hay que tener cuidado con el nombre de las variables. Por ejemplo, `$color-base` es más reutilizable que `$color-azul`.
+
+### Interpolación
+
+Vamos a utilizar el esquema de variables que utiliza Ruby para `#{$variable}` con el fin de introducir las variables a los selectores, nombre de propiedades y cadenas. Veamos un ejemplo.
+
+```sass
+$side: top;
+.sup {
+position: relative;
+top: -0.5em;
+}
+.callout-#{$side} {
+background: #777;
+}
+```
+
+**Resultado css**
+
+```css
+sup {
+  position: relative;
+  top: -0.5em;
+}
+.callout-top {
+  background: #777;
+}
+```
+
+## Mixin
+
+Algunas cosas en CSS son un poco tediosas para escribir, especialmente con CSS3 y los prefijos de muchos proveedores que existen. Un mixin te permite crear grupos de declaraciones CSS que deseas reutilizar en todo tu sitio. Incluso puede pasar valores para que su mixin sea más flexible. Un buen uso de un mixin es para prefijos de proveedores.
+
+```scss
+.btn-a {
+  background: #777;
+  border: 1px solid #ccc;
+  font-size: 1em;
+  text-transform: uppercase;
+}
+.btn-b {
+  background: #ff0;
+  border: 1px solid #ccc;
+  font-size: 1em;
+  text-transform: uppercase;
+}
+```
+
+Como podemos observar tenemos mucho código repetido con algunas propiedades diferentes.Podemos reutilizar este código de la siguiente manera:
+
+```scss
+@mixin button {
+  border: 1px solid #ccc;
+  font-size: 1em;
+  text-transform: uppercase;
+}
+```
+
+El código quedaría de la siguiente manera.
+
+```scss
+@mixin button {
+}
+border: 1px solid #ccc;
+font-size: 1em;
+text-transform: uppercase;
+}
+.btn-a {
+@include button;
+background: #777;
+}
+.btn-b {
+@include button;
+background: #ff0;
+}
+```
+
+**Resultado css**
+
+```css
+.btn-a {
+  border: 1px solid #ccc;
+  font-size: 1em;
+  text-transform: uppercase;
+  background: #777;
+}
+.btn-b {
+  border: 1px solid #ccc;
+  font-size: 1em;
+  text-transform: uppercase;
+  background: #ff0;
+}
+```
+
+El anterior bloque es ineficiente. Con css podemos generar un código más eficiente como el siguiente:
+
+```css
+.btn-a,
+.btn-b {
+  background: #777;
+  border: 1px solid #ccc;
+  font-size: 1em;
+  text-transform: uppercase;
+}
+.btn-b {
+  background: #ff0;
+}
+```
+
+Hay que asegurarse que el bloque `@mixin` está antes del `@include`, especialmente cuando importamos ficheros que contienen @mixin. Recordar que @include es para incluir mixin y @import es para incluir archivos.
+
+Entonces, si esto es lo que pasa con mixin. Para qué son buenos?. Vamos a ver como añadirles argumentos.
+
+### Añadiendo argumentos
+
+Vamos a ver, a través del ejemplo siguiente, como podemos utilizar mixin, pasándola argumentos que potencialmente cambien la salida css.
+
+```scss
+@mixin box-sizing {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.content {
+  @include box-sizing;
+  border: 1px solid #ccc;
+  padding: 20px;
+}
+```
+
+**Resultado css**
+
+```css
+.content {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  padding: 20px;
+}
+```
+
+Ahora podemos al mixin anterior pasarle un argumento. Con lo quedaría de la siguiente manera.
+
+```scss
+@mixin box-sizing($x) {
+  -webkit-box-sizing: $x;
+  -moz-box-sizing: $x;
+  box-sizing: $x;
+}
+.content {
+  @include box-sizing(border-box);
+  border: 1px solid #ccc;
+  padding: 20px;
+}
+
+.callout {
+  @include box-sizing(content-box);
+}
+```
+
+**Resultado css**
+
+```css
+.content {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  padding: 20px;
+}
+
+.callout {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+```
+
+Opcionalmente, podemos incluir valores por defecto. De la siguiente manera.
+
+```scss
+@mixin box-sizing($x: border-box) {
+  -webkit-box-sizing: $x;
+  -moz-box-sizing: $x;
+  box-sizing: $x;
+}
+.content {
+  @include box-sizing;
+  border: 1px solid #ccc;
+  padding: 20px;
+}
+.callout {
+  @include box-sizing(content-box);
+}
+```
+
+**Resultado css**
+
+```css
+.content {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  padding: 20px;
+}
+
+.callout {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+```
+
+También podemos pasar múltiples argumentos. Pasados en orden y separados por coma.
+
+```scss
+@mixin button($radius, $color) {
+  border-radius: $radius;
+  color: $color;
+}
+.btn-a {
+  @include button(4px, #000);
+}
+```
+
+**Resultado css**
+
+```css
+.btn-a {
+  border-radius: 4px;
+  color: #000;
+}
+```
+
+Si nos olvidamos, por ejemplo, de uno de los argumentos, nos va a dar error de compilación mostrándonos el argumento que falta.
+Opcionalmente, si ponemos un valor por defecto podríamos poner solamente el valor que falta. Veamos un ejemplo:
+
+```scss
+@mixin button($radius, $color: #000) {
+  border-radius: $radius;
+  color: $color;
+}
+.btn-a {
+  @include button(4px);
+}
+```
+
+**Resultado css**
+
+```css
+.btn-a {
+  border-radius: 4px;
+  color: #000;
+}
+```
+
+Si ponemos valores por defecto a los argumentos, como hemos visto, estos tienen que estar los primeros por la derecha. El siguiente ejemplo nos daría error de compilación.
+
+```scss
+@mixin button($color: #000, $radius) {
+  border-radius: $radius;
+  color: $color;
+}
+.btn-a {
+  @include button(4px);
+}
+```
+
+Además, podemos pasar el valor de cada uno de los argumentos, sin importar el orden, de la siguiente manera.
+
+```scss
+@mixin button($radius, $color: #000) {
+  border-radius: $radius;
+  color: $color;
+}
+.btn-a {
+  @include button($color: #777, $rapius: 5 px);
+}
+```
+
+**Resultado css**
+
+```css
+.btn-a {
+  border-radius: 5px;
+  color: #777;
+}
+```
+
+Qué pasa cuando las propiedades tengan un valor separado por una coma. Si intentamos pasarlo nos dará error de compilación. El compilador entiende que estamos pasando dos argumentos. El siguiente ejemplo nos proporciona error de compilación.
+
+```scss
+@mixin transition($val) {
+  -webkit-transition: $val;
+  -moz-transition: $val;
+  transition: $val;
+}
+.btn-a {
+  @include transition(color 0.3s ease-in, background 0.5s ease-out);
+}
+```
+
+Para arreglarlo deberemos introducir al argumento del mixin `...`
+
+```scss
+@mixin transition($val...) {
+  -webkit-transition: $val;
+  -moz-transition: $val;
+  transition: $val;
+}
+.btn-a {
+  @include transition(color 0.3s ease-in, background 0.5s ease-out);
+}
+```
+
+**Resultado css**
+
+```css
+.btn-a {
+  -webkit-transition: color 0.3s ease-in, background 0.5s ease-out;
+  -moz-transition: color 0.3s ease-in, background 0.5s ease-out;
+  transition: color 0.3s ease-in, background 0.5s ease-out;
+}
+```
+
+También podríamos realizarlo al revés. Podríamos crear una lista y pasársela al mixin. Esta lista es dividida en argumentos por el mixin.
+
+```scss
+@mixin button($radius, $color) {
+  border-radius: $radius;
+  color: $color;
+}
+$propiedades: 4px, #000;
+.btn-a {
+  @include button($propiedades…);
+}
+```
+
+**Resultado css**
+
+```css
+.btn-a {
+  border-radius: 4px;
+  color: #000;
+}
+```
+
+### Interpolación y mixin
+
+El objetivo es controlar el lado del borde y poder cambiar el color . Podemos crear el siguiente código como aproximación al objetivo.
+
+```scss
+@mixin highlight-t($color) {
+  border-top-color: $color;
+}
+@mixin highlight-r($color) {
+  border-right-color: $color;
+}
+@mixin highlight-b($color) {
+  border-bottom-color: $color;
+}
+@mixin highlight-l($color) {
+  border-left-color: $color;
+}
+.btn-a {
+  @include highlight-r(#ff0);
+}
+```
+
+**Resultado css**
+
+```css
+.btn-a {
+  border-right-color: #ff0;
+}
+```
+
+Pero como vemos, es una utilización horrible e ineficiente del mixin. La solución será la utilización de la interpolación.
+
+```scss
+@mixin highlight($color, $side) {
+  border-#{$side}-color: $color;
+}
+.btn-a {
+  @include highlight(#ff0, right);
+}
+```
+
+**Resultado css**
+
+```css
+.btn-a {
+  border-right-color: #ff0;
+}
+```
+
+## Ampliaciones ( Extend ).
+
+Nos acordamos del anterior ejemplo cuando los mixin no producían un código efectivo y teníamos que utilizar código CSS puro.
+
+```scss
+@mixin button {
+}
+border: 1px solid #ccc;
+font-size: 1em;
+text-transform: uppercase;
+}
+.btn-a {
+@include button;
+background: #777;
+}
+.btn-b {
+@include button;
+background: #ff0;
+}
+```
+
+**Resultado css**
+
+```css
+.btn-a {
+  border: 1px solid #ccc;
+  font-size: 1em;
+  text-transform: uppercase;
+  background: #777;
+}
+.btn-b {
+  border: 1px solid #ccc;
+  font-size: 1em;
+  text-transform: uppercase;
+  background: #ff0;
+}
+```
+
+Sass incorpora las función @extend para ampliar las propiedades de cada uno de los elementos. El anterior código lo podemos realizar de la siguiente manera.
+
+```scss
+.btn-a {
+  border: 1px solid #ccc;
+  font-size: 1em;
+  text-transform: uppercase;
+  background: #777;
+}
+.btn-b {
+  @extend .btn-a;
+  background: #ff0;
+}
+```
+
+**Resultado css**
+
+```css
+.btn-a,
+.btn-b {
+  border: 1px solid #ccc;
+  font-size: 1em;
+  text-transform: uppercase;
+  background: #777;
+}
+.btn-b {
+  background: #ff0;
+}
+```
+
+**¿Qué es lo que hace?.**
+
+```scss
+.btn-b {
+  @extend .btn-a;
+  background: #ff0;
+}
+```
+
+**Resultado css**
+
+```css
+.btn-a,
+.btn-b {
+}
+.btn-b {
+  /* Añade una segunda declaración para los valores únicos */
+}
+```
+
+¿Qué pasa cuando utilizamos anidamientos y la ampliación?. Vamos a ver un ejemplo.
+
+```scss
+.content {
+  border: 1px solid #ccc;
+  padding: 20px;
+  h2 {
+    font-size: 3em;
+    margin: 20px 0;
+  }
+}
+.callout {
+  @extend .content;
+  background: #ddd;
+}
+```
+
+**Resultado css**
+
+```css
+.content,.callout {
+border: 1px solid #ccc;
+padding: 20px;
+}
+.content h2,.callout h2 {
+font-size: 3em;
+margin: 20px 0;
+}
+.callout {
+background: #ddd;
+}
+}
+```
+
+Pero, hay que tener cuidado porque podemos generar estilos no deseados. En el siguiente ejemplo se han generado la clase de `.sidebar .btn-b` con las propiedades de `.sidebar .btn-a`. La del botón b no se quería incluir.
+
+```scss
+.btn-a {
+  background: #777;
+  border: 1px solid #ccc;
+  font-size: 1em;
+  text-transform: uppercase;
+}
+.btn-b {
+  @extend .btn-a;
+  background: #ff0;
+}
+.sidebar .btn-a {
+  text-transform: lowercase;
+}
+```
+
+**Resultado css**
+
+```css
+.btn-a,
+.btn-b {
+  background: #777;
+  border: 1px solid #ccc;
+  font-size: 1em;
+  text-transform: uppercase;
+}
+.btn-b {
+  background: #ff0;
+}
+.sidebar .btn-a,
+.sidebar .btn-b {
+  text-transform: lowercase;
+}
+```
+
+Este efecto lo podemos contrarrestar con la utilización del selector de referencia (placeholder selector). Antes de utilizar este tipo de selector, una buena práctica es siempre comprobar el css que se ha generado.
+
+Los placeholder selector son identificados mediante con un `%`. Este, puede ser extendido pero nunca va a ser un selector propio.
+
+```scss
+%btn {
+  background: #777;
+  border: 1px solid #ccc;
+  font-size: 1em;
+  text-transform: uppercase;
+}
+.btn-b {
+  @extend %btn;
+  background: #ff0;
+}
+.sidebar .btn-a {
+  text-transform: lowercase;
+}
+```
+
+**Resultado css**
+
+```css
+.btn-a,
+.btn-b {
+  background: #777;
+  border: 1px solid #ccc;
+  font-size: 1em;
+  text-transform: uppercase;
+}
+.btn-b {
+  background: #ff0;
+}
+.sidebar .btn-a {
+  text-transform: lowercase;
+}
+```
+
+Como vemos ya la clase .btn-b ya no esta en el ámbito. Además, es una buena práctica extender bloques comunes para evitar crear clases extras. Por ejemplo, la versiones anteriores a la 9 de IE tiene un limite de 4095 selectores por fichero CSS.
+
+## Directivas
+
+En esta sección veremos las siguientes directivas:
+
+- Functions
+- If
+- Each
+- For + While
+- Mixin' In
+
+### Funciones
+
+Para ver esta las funciones, antes vamos a ver una formula que utilizaremos para un diseño adaptable. Por ejemplo, si queremos una caja de 350px con un padre de 1000px hay que poner target / context . Es decir, 350px / 1000px = 0.35 0.35 \* 100 = 35%. Crearemos el siguiente código. Los argumentos siguen las mismas reglas que los mixin.
+
+```scss
+$theme: dark;
+Header {
+  @if $theme == dark {
+    background: #000;
+  }
+}
+```
+
+**Resultado css**
+
+```css
+header {
+  background: #000;
+}
+```
+
+### Estructuras de condición.
+
+Ahora, vamos a utilizar la directiva `@if` con la que podemos condicional la salida de nuestro código.
+
+```scss
+@function fluidize($target, $context) {
+  @return ($target / $context) * 100%;
+}
+.sidebar {
+  width: fluidize(350px, 1000px);
+}
+```
+
+**Resultado css**
+
+```css
+.sidebar {
+  width: 35%;
+}
+```
+
+Las comparaciones posibles son:
+
+- == igual a
+- != no igual a
+- \> más grande que
+- \> = más grande que o igual a
+- \< menor que
+- \<= menor que o igual a.
+
+En el siguiente ejemplo vamos a ver una estructura más compleja. En el que se utiliza, con `@if , @else if y @else`.
+
+```scss
+$theme: pink;
+header {
+  @if $theme == dark {
+    background: #000;
+  } @else if $theme == pink {
+    background: pink;
+  } @else {
+    background: #fff;
+  }
+}
+```
+
+**Resultado css**
+
+```css
+header {
+  background: pink;
+}
+```
+
+### Interaccionar con una lista
+
+La directiva `@each` nos permite realizar un bucle a través de cada uno de los elementos de esa lista.
+
+```scss
+$authors: nick aimee dan drew;
+@each $author in $authors {
+  .autor-#{$author} {
+    background: url(author-#{$author}.jpg);
+  }
+}
+```
+
+**Resultado css**
+
+```css
+.author-nick {
+  background: url(author-nick.jpg);
+}
+.author-aimee {
+  background: url(author-aimee.jpg);
+}
+.author-dan {
+  background: url(author-dan.jpg);
+}
+.author-drew {
+  background: url(author-drew.jpg);
+}
+```
+
+Otras directivas son `@for y @while`.
+
+```scss
+.item {
+  position: absolute;
+  right: 0;
+  @for $i from 1 through 3 {
+    &.item-#{$i} {
+      top: $i * 30px;
+    }
+  }
+}
+```
+
+**Resultado css**
+
+```css
+.item {
+  position: absolute;
+  right: 0;
+}
+.item.item-1 {
+  top: 30px;
+}
+.item.item-2 {
+  top: 60px;
+}
+.item.item-3 {
+  top: 90px;
+}
+```
+
+```scss
+$i: 1;
+.item {
+position: absolute;
+right: 0;
+}
+@while $i < 4 {
+}
+&.item-#{$i} {
+top: $i * 30px;
+}
+$i:$i+1;
+}
+}
+```
+
+**Resultado css**
+
+```css
+.item {
+  position: absolute;
+  right: 0;
+}
+.item.item-1 {
+  top: 30px;
+}
+.item.item-2 {
+  top: 60px;
+}
+.item.item-3 {
+  top: 90px;
+}
+```
+
+Como vemos @for y @while necesita un contador en los dos ejemplos (`$i`). Estas dos directivas nos dan más control que `@each`. Y aun más `@while`, con el cual podemos controlar los saltos. Por ejemplo, en el anterior código podemos hacer saltos de dos en dos.
+
+```scss
+$i: 2;pagebreak
+.item {
+position: absolute;
+right: 0;
+}
+@while $i < 4 {
+}
+&.item-#{$i} {
+top: $i * 30px;
+}
+$i:$i+2;
+}
+}
+```
+
+**Resultado css**
+
+```css
+.item {
+  position: absolute;
+  right: 0;
+}
+.item.item-2 {
+  top: 30px;
+}
+.item.item-4 {
+  top: 60px;
+}
+.item.item-6 {
+  top: 90px;
+}
+```
+
+Vamos a hacer resumen de algunos conceptos:
+
+- **Mixins:** Se utiliza para asignar propiedades similares utilizadas muchas veces con muy pocas variaciones.
+- **Extend:** Asigna propiedades que son exactamente iguales.
+- **Funtions:** Comúnmente se utiliza para retornar valores calculados que la vamos a utilizar a lo largo del código.
+
+Podemos utilizar los Mixin con las directiva de condición. De la siguiente forma:
+
+```scss
+@mixin button($color, $rounded: true) {
+  color: $color;
+  @if $rounded == true {
+    border-radius: 4px;
+  }
+}
+
+.btn-a {
+  @include button(#000, false);
+}
+.btn-b {
+  @include button(#333);
+}
+```
+
+**Resultado css**
+
+```css
+.btn-b {
+  color: #333;
+  border-radius: 4px;
+}
+
+.btn-a {
+  color: black;
+}
+```
+
+También podemos recodificar el ejemplo anterior de la siguiente forma. Si `$rounded` es verdadero o null.
+
+```scss
+@mixin button($color, $rounded: false) {
+  color: $color;
+  @if $rounded {
+    border-radius: 4px;
+  }
+}
+
+.btn-a {
+  @include button(#000);
+}
+.btn-b {
+  @include button(#333, 4px);
+}
+```
+
+**Resultado css**
+
+```css
+.btn-b {
+  color: #333;
+  border-radius: 4px;
+}
+
+.btn-a {
+  color: #333;
+}
+```
+
+## Operaciones Matemáticas y color.
+
+Las operaciones básicas que se pueden realizar son:
+
+- Suma +
+- Resta -
+- Multiplicación \*
+- División /
+- modulo %
+
+Hay tener en cuenta que Sass por defecto redondea por encima de 5.
+Con respecto a la división hay varias formulas que activan la division.
+
+- Cuando hay una variable involucrada `$size/10`
+- Cuando lo ponemos entre paréntesis `(100px / 20)`
+- Otra tipo de operaciones como `20px\*5/7`.
+
+Pero cuando está involucrado en la propiedad font no realiza la división. La compilación del siguiente código se queda de la misma forma. Ya que, 2em se refiere al tamaño y 1.5 a la separación de linea.
+
+```scss
+font: normal 2em/1.5 Helvetica, sans-serif;
+```
+
+Otro aspecto a considerar es cuando utilizamos + con dos string. No suma sino concatena dos strings. Por ejemplo.
+Si utilizamos diferentes unidades Sass trata de combinarlas.
+
+```scss
+$family: "Helvetica " + "Neue"; // "Helvetica Neue"
+$family: 'sans-' + serif // 'sans-serif'
+$family: sans- + 'serif' // sans-serif
+```
+
+Si utilizamos diferentes unidades Sass trata de combinarlas.
+
+```scss
+h2 {
+  font-size: 10px + 4pt;
+}
+```
+
+**Resultado css**
+
+```css
+h2 {
+  font-size: 15.33333px;
+}
+```
+
+Pero, algunas unidades son incompatibles.
+
+```scss
+h2 {
+  font-size: 10px + 4em;
+}
+```
+
+**Resultado css**
+
+```css
+/* Incompatible units: 'em'
+and 'px'. */
+```
+
+Tenemos algunas utilidades como:
+
+- `round($number)` – Redondear al número entero más cercano
+- `ceil($number)` - Redondea al número superior.
+- `floor($number)` – Redondea al número inferior.
+- `abs($number)` – Valor absoluto del número.
+- `min($list)` – Devuelve el número mínimo de la lista.
+- `max($list)` - Devuelve el número mínimo de la lista.
+- `percentage($number)` – Convierte a formato porcentaje.
+
+Ejemplos de utilización de las anteriores funciones:
+
+### Ejemplo 1
+
+```scss
+h2 {
+  line-height: ceil(1.2);
+}
+```
+
+**Resultado css**
+
+```css
+h2 {
+  line-height: 1;
+}
+```
+
+### Ejemplo 2
+
+```scss
+.caja {
+  height: percentage(250px/500px);
+}
+```
+
+**Resultado css**
+
+```css
+.caja {
+  height: 50%;
+}
+```
+
+### Ejemplo 3
+
+```scss
+$contexto: 500px .caja {
+  height: percentage(250px / $contexto);
+}
+```
+
+**Resultado css**
+
+```css
+.caja {
+  height: 50%;
+}
+```
+
+## Utilización de los colores.
+
+Con Sass podemos utilizar los colores de una manera más efectiva. Vamos a poder modificarlos mediante funciones y los podemos almacenar en variables que nos facilitan su recuerdo. Además de utilizar atajos.
+
+```scss
+$color-base: #333;
+.suma {
+  background: $color-base + #112233;
+}
+.resta {
+  background: $color-base - #112233;
+}
+.mul {
+  background: $color-base * 2;
+}
+.division {
+  background: $color-base / 2;
+}
+```
+
+**Resultado css**
+
+```css
+.suma {
+  background: #445566;
+}
+
+.resta {
+  background: #221100;
+}
+.mul {
+  background: #666666;
+}
+.division {
+  background: #191919;
+}
+```
+
+En el siguiente ejemplo vemos la utilización de una función.
+
+```scss
+$color-base: #333;
+.aplha {
+  background: rgba($color, 0.8);
+}
+.beta {
+  background: rgba(#000, 0.8);
+}
+```
+
+**Resultado css**
+
+```css
+.beta {
+  background: rgba(0, 0, 0, 0.8);
+}
+.alpha {
+  background: rgba(51, 51, 51, 0.8);
+}
+```
+
+Como vemos también podemos utilizar valores hexadecimales.
+
+Siempre que sea posible, utilice las funciones de utilidad de color en lugar de la aritmética del color: más fácil de predecir y mantener.
+
+Vamos a ver algunas funciones que nos van a interesar.
+
+Para hacer color más brillante o menos . Toma un color y un número entre 0% y 100%, y devuelve un color con el brillo aumentado o disminuido. en esa cantidad.
+
+```scss
+$color-base: #333;
+.brillo {
+  color: lighten($color-base, 20%);
+}
+.oscuro {
+  color: darken($color-base, 20%);
+}
+```
+
+**Resultado css**
+
+```css
+.brillo {
+  background: #666666;
+}
+.oscuro {
+  background: black;
+}
+```
+
+Para saturar o desaturar un color.
+
+```scss
+$color-base: #333;
+
+.saturate {
+  color: saturate($color, 20%);
+}
+.desaturate {
+  color: desaturate($color, 20%);
+}
+```
+
+**Resultado css**
+
+```css
+.saturate {
+  background: #82d54e;
+}
+.desaturate {
+  background: #323130;
+}
+```
+
+Para mezclar utilizaremos la función mix. Podemos pasar dos argumentos y creará la mezcla con la media y opcionalmente ponderado (.desaturate).
+
+El peso especifica la cantidad del primer color que debe incluirse en el color devuelto. El valor predeterminado, 50%, significa que se debe utilizar la mitad del primer color y la mitad del segundo color. 25% significa que se utilizará una cuarta parte del primer color y tres cuartos del segundo color.
+
+```scss
+.mix-a {
+  color: mix(#ffff00, #107fc9);
+}
+.desaturate {
+  color: mix(#ffff00, #107fc9, 30%);
+}
+```
+
+**Resultado css**
+
+```css
+.mix-a {
+  background: #87bf64;
+}
+.mix-b {
+  background: #57a58c;
+}
+```
+
+Otras funciones sobre colores:
+
+```scss
+$color: #87bf64;
+.grayscale {
+  color: grayscale($color);
+}
+.invert {
+  color: invert($color);
+}
+.complement {
+  color: complement($color);
+}
+```
+
+**Resultado css**
+
+```css
+.grayscale {
+  color: #929292;
+}
+
+.invert {
+  color: #78409b;
+}
+.complement {
+  color: #9c64bf;
+}
+```
+
+Pero hay muchas más funciones. Como podemos ver en el siguiente [link](http://sass-lang.com/documentation/Sass/Script/Functions.html).
