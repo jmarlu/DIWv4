@@ -2,7 +2,9 @@
 
 Vamos a diseñar la web de una asociación de fotografía. La persona que la visita quiere encontrar una salida, conocer sus requisitos y saber cómo participar. El ejemplo recorre los contenidos de UD1 y deja una referencia que podrás trasladar a tu proyecto de libre elección.
 
-**Duración orientativa:** 10–12 horas con revisión. Integra prácticas de las actividades de Figma; sigue las indicaciones de clase sobre los ejercicios que debes entregar. No cambia las ponderaciones de la unidad.
+**Uso del ejemplo:** Mirada muestra paso a paso cómo desarrollar un diseño. No hay que entregar Mirada ni sus ejercicios, comprobaciones o exportaciones. Las indicaciones de compartir y exportar enseñan el procedimiento que después podrás aplicar a tu proyecto de la actividad 21.
+
+**Duración orientativa:** 10–12 horas con revisión para recorrer el ejemplo completo.
 
 [Ver todas las láminas](ejemplo-mirada/index.html){ .md-button }
 
@@ -20,27 +22,28 @@ El recorrido interactivo resuelto se centra en **«La luz del sábado»**. Las o
 
 ## Qué se trabaja y dónde
 
-| Contenido de UD1 | Aplicación en el ejemplo |
-|---|---|
-| Planificación y usuarios | Pasos 1–4: brief, tareas, mapa y flujo |
-| Identificación, navegación, contenido e interacción | Pasos 4, 19–23: estructura y pantallas |
-| Jerarquía, proximidad, semejanza y figura/fondo | Pasos 5, 19 y 27: orden, tarjetas y contraste |
-| Simetría, continuidad y cierre | Pasos 5 y 30: alternativas y composición |
-| Color y modelos | Pasos 7–8: paleta, roles, HEX/RGB y contraste |
-| Tipografía y espaciado | Pasos 9–10: familia, peso, interlineado y longitud |
-| Iconos y vectores | Pasos 11 y 30: trazo, edición y etiqueta |
-| Frames, guías y alineación | Pasos 6 y 19: columnas y estructura |
-| Auto Layout y reutilización | Pasos 12–18: componentes, instancias y estados |
-| Imágenes, recortes, máscaras y soft crop | Pasos 24–28 |
-| Superposición y tensión | Pasos 29–30 |
-| Prototipo y microinteracciones | Pasos 31–34 |
-| Revisión y continuidad del proyecto | Pasos 35–38 |
+Cada apartado de la unidad tiene su aplicación en este ejemplo. Los enlaces de la primera columna llevan a los apuntes; los de la última, al paso concreto de Mirada.
+
+| Apartado de UD1 | Aplicación en Mirada | Pasos del ejemplo |
+|---|---|---|
+| [Planificación](<planificación.md>) | Del encargo y los perfiles al inventario, el mapa, el flujo y la prueba de tarea. | [Paso 2: Escribir y entender el brief](#paso-2-escribir-y-entender-el-brief) · [Paso 3: Del brief al inventario de contenido](#paso-3-del-brief-al-inventario-de-contenido) · [Paso 4: Del brief al mapa y al flujo](#paso-4-del-brief-al-mapa-y-al-flujo) · [Paso 35: Realizar una prueba de tarea](#paso-35-realizar-una-prueba-de-tarea) |
+| [Estructura](<Componentes de un interfaz web.md>) | Identificación, navegación, contenido e interacción en las pantallas amplias y estrechas. | [Paso 4: Del brief al mapa y al flujo](#paso-4-del-brief-al-mapa-y-al-flujo) · [Paso 17: Crear enlaces y cabecera](#paso-17-crear-enlaces-y-cabecera) · [Paso 19: Montar el inicio amplio](#paso-19-montar-el-inicio-amplio) · [Paso 20: Adaptar el inicio estrecho](#paso-20-adaptar-el-inicio-estrecho) · [Paso 21: Diseñar el detalle](#paso-21-disenar-el-detalle) · [Paso 22: Representar solicitud y error](#paso-22-representar-solicitud-y-error) · [Paso 23: Diseñar la confirmación](#paso-23-disenar-la-confirmacion) |
+| [Principios visuales](<elementosDiseño.md>) | Jerarquía, proximidad, semejanza, figura/fondo, simetría, continuidad y cierre aplicados a la composición. | [Paso 5: Comparar dos bocetos](#paso-5-comparar-dos-bocetos) · [Paso 19: Montar el inicio amplio](#paso-19-montar-el-inicio-amplio) · [Paso 27: Añadir un velo para el texto](#paso-27-anadir-un-velo-para-el-texto) · [Paso 29: Probar superposición](#paso-29-probar-superposicion) · [Paso 30: Practicar tensión, cierre y edición vectorial](#paso-30-practicar-tension-cierre-y-edicion-vectorial) |
+| [Color, tipografía e iconos](<colorTipografíaIconos.md>) | Paleta por función, modelos de color, contraste, estilos de texto, espaciado e iconos. | [Paso 7: Crear los colores por función](#paso-7-crear-los-colores-por-funcion) · [Paso 8: Comprobar contraste](#paso-8-comprobar-contraste) · [Paso 9: Crear estilos tipográficos](#paso-9-crear-estilos-tipograficos) · [Paso 10: Ensayar longitud y espaciado](#paso-10-ensayar-longitud-y-espaciado) · [Paso 11: Importar y normalizar iconos](#paso-11-importar-y-normalizar-iconos) |
+| [Figma y composición](<EmpezarFigma.md>) | Archivo, frames, guías, imágenes, recortes, máscaras, velo, soft crop, superposición y tensión. | [Paso 1: Crear el archivo y el espacio de trabajo](#paso-1-crear-el-archivo-y-el-espacio-de-trabajo) · [Paso 6: Crear los frames y las guías](#paso-6-crear-los-frames-y-las-guias) · [Paso 24: Importar el paisaje](#paso-24-importar-el-paisaje) · [Paso 25: Recortar sin deformar](#paso-25-recortar-sin-deformar) · [Paso 26: Crear una máscara](#paso-26-crear-una-mascara) · [Paso 27: Añadir un velo para el texto](#paso-27-anadir-un-velo-para-el-texto) · [Paso 28: Crear soft crop con degradado](#paso-28-crear-soft-crop-con-degradado) · [Paso 29: Probar superposición](#paso-29-probar-superposicion) · [Paso 30: Practicar tensión, cierre y edición vectorial](#paso-30-practicar-tension-cierre-y-edicion-vectorial) |
+| [Componentes](<Componentes_Figma.md>) | Auto Layout, variantes, instancias, estados, prototipo y microinteracciones. | [Paso 12: Crear un botón con Auto Layout](#paso-12-crear-un-boton-con-auto-layout) · [Paso 13: Separar tipo y estado](#paso-13-separar-tipo-y-estado) · [Paso 14: Probar instancias](#paso-14-probar-instancias) · [Paso 15: Construir la tarjeta de actividad](#paso-15-construir-la-tarjeta-de-actividad) · [Paso 16: Crear campo, etiqueta, ayuda y error](#paso-16-crear-campo-etiqueta-ayuda-y-error) · [Paso 17: Crear enlaces y cabecera](#paso-17-crear-enlaces-y-cabecera) · [Paso 18: Montar la página de componentes](#paso-18-montar-la-pagina-de-componentes) · [Paso 31: Conectar las pantallas](#paso-31-conectar-las-pantallas) · [Paso 32: Añadir una microinteracción](#paso-32-anadir-una-microinteraccion) · [Paso 33: Ensayar una ventana superpuesta](#paso-33-ensayar-una-ventana-superpuesta) · [Paso 34: Revisar animación y desplazamiento](#paso-34-revisar-animacion-y-desplazamiento) |
+| [Recorrido de clase](<guiaUnidad.md>) | Sitúa el trabajo desde la preparación hasta la revisión y la continuidad del proyecto. | [Paso 1: Crear el archivo y el espacio de trabajo](#paso-1-crear-el-archivo-y-el-espacio-de-trabajo) · [Paso 35: Realizar una prueba de tarea](#paso-35-realizar-una-prueba-de-tarea) · [Paso 38: Transferir al proyecto de la actividad 21](#paso-38-transferir-al-proyecto-de-la-actividad-21) |
+| [Objetivos y criterios](<objetivos.md>) | Comprueba el resultado, prepara los recursos y relaciona lo aprendido con el proyecto propio. | [Paso 36: Comprobar el resultado](#paso-36-comprobar-el-resultado) · [Paso 37: Compartir y exportar](#paso-37-compartir-y-exportar) · [Paso 38: Transferir al proyecto de la actividad 21](#paso-38-transferir-al-proyecto-de-la-actividad-21) |
+| [Actividades](<Actividades.md>) | Transfiere las técnicas a la actividad 21; Mirada es un ejemplo sin entrega. | [Paso 38: Transferir al proyecto de la actividad 21](#paso-38-transferir-al-proyecto-de-la-actividad-21) |
+| [Apoyo · DesignPro](<Tutorial_Figma_DesignPro.md>) | Compara el sistema visual, la cabecera y la composición con otro ejemplo de apoyo. | [Paso 7: Crear los colores por función](#paso-7-crear-los-colores-por-funcion) · [Paso 9: Crear estilos tipográficos](#paso-9-crear-estilos-tipograficos) · [Paso 17: Crear enlaces y cabecera](#paso-17-crear-enlaces-y-cabecera) · [Paso 19: Montar el inicio amplio](#paso-19-montar-el-inicio-amplio) · [Paso 20: Adaptar el inicio estrecho](#paso-20-adaptar-el-inicio-estrecho) |
 
 Las reglas de alineación y consistencia se aplican según la función: una página puede combinar bloques alineados a la izquierda y otros centrados si la relación es clara. Las medidas de este ejercicio son decisiones de diseño, no reglas universales.
 
 ## Bloque 1 · Comprender y organizar
 
 ### Paso 1. Crear el archivo y el espacio de trabajo
+
+**Referencia de UD1:** [Figma y composición](<EmpezarFigma.md>).
 
 1. Entra en https://www.figma.com desde el navegador y crea un archivo de **Figma Design** y llámalo `UD1 · Mirada · Tu versión`.
 2. Trabaja en una sola página para no depender de límites de páginas del plan.
@@ -50,6 +53,8 @@ Las reglas de alineación y consistencia se aplican según la función: una pág
 **Comprueba:** puedes localizar cada grupo sin depender del orden en que lo dibujaste.
 
 ### Paso 2. Escribir y entender el brief
+
+**Referencia de UD1:** [Planificación](<planificación.md>).
 
 #### 2.1. Qué es un brief y para qué lo hacemos
 
@@ -183,6 +188,8 @@ La lámina de planificación es un resumen visual del caso; este texto explica e
 
 ### Paso 3. Del brief al inventario de contenido
 
+**Referencia de UD1:** [Planificación](<planificación.md>) · [Estructura](<Componentes de un interfaz web.md>).
+
 Ahora convertimos «necesitamos informar sobre una salida» en textos que podamos colocar en las pantallas. El brief explica por qué hacen falta; el inventario recoge cuáles son y dónde los utilizaremos.
 
 | Dato | Contenido de práctica para Mirada | Uso y estado |
@@ -205,6 +212,8 @@ Recupera las tres tareas del brief: encontrar la salida, averiguar sus requisito
 **Comprueba:** cada dato tiene una función y los textos coinciden entre tarjeta, detalle y solicitud. Evita Lorem ipsum en la información que permite tomar decisiones.
 
 ### Paso 4. Del brief al mapa y al flujo
+
+**Referencia de UD1:** [Planificación](<planificación.md>) · [Estructura](<Componentes de un interfaz web.md>).
 
 Son tres documentos relacionados, pero responden a preguntas distintas:
 
@@ -247,6 +256,8 @@ No hace falta que cada caja sea una página HTML independiente cuando implemente
 
 ### Paso 5. Comparar dos bocetos
 
+**Referencia de UD1:** [Principios visuales](<elementosDiseño.md>).
+
 1. Dibuja dos versiones del inicio en escala de grises, sin seleccionar aún una paleta.
 2. En A, coloca una imagen grande antes de los datos.
 3. En B, presenta propuesta, información y acción antes de la imagen.
@@ -259,6 +270,8 @@ La **proximidad** une fecha y actividad; la **semejanza** agrupa tarjetas; la **
 
 ### Paso 6. Crear los frames y las guías
 
+**Referencia de UD1:** [Figma y composición](<EmpezarFigma.md>).
+
 1. En `05 Pantallas`, crea `Inicio / Amplio`, de **1280 × 1400 px**.
 2. Añade una guía de **12 columnas**, tipo Stretch, margen **80 px** y gutter **24 px**. Puede aparecer como Layout grid o Layout guides según la interfaz.
 3. El área de contenido mide `1280 − 80 − 80 = 1120 px`. Las guías ayudan a alinear; no distribuyen por sí mismas los hijos.
@@ -268,6 +281,8 @@ La **proximidad** une fecha y actividad; la **semejanza** agrupa tarjetas; la **
 **Comprueba:** conoces la diferencia entre guías de columnas y Auto Layout. La altura de los frames es una referencia inicial; puede crecer si cambia el contenido.
 
 ### Paso 7. Crear los colores por función
+
+**Referencia de UD1:** [Color, tipografía e iconos](<colorTipografíaIconos.md>).
 
 En `03 Sistema`, crea una muestra por rol y guarda estilos de color locales desde el relleno. Usa estos nombres y valores:
 
@@ -289,6 +304,8 @@ Escribe el rol junto a cada muestra. Identifica un mismo color en HEX y RGB usan
 
 ### Paso 8. Comprobar contraste
 
+**Referencia de UD1:** [Color, tipografía e iconos](<colorTipografíaIconos.md>).
+
 1. Comprueba Texto/Fondo, blanco/Acción y Error/Fondo con una herramienta de contraste.
 2. Anota los valores obtenidos y el contexto de uso.
 3. Para texto normal usa como referencia 4,5:1 y para texto grande 3:1 según la definición de WCAG.
@@ -297,6 +314,8 @@ Escribe el rol junto a cada muestra. Identifica un mismo color en HEX y RGB usan
 La tabla del paquete `contrastes.json` contiene cálculos de pares planos. No demuestra contraste sobre una imagen variable ni conformidad completa. [Referencia WCAG](https://www.w3.org/WAI/WCAG22/quickref/).
 
 ### Paso 9. Crear estilos tipográficos
+
+**Referencia de UD1:** [Color, tipografía e iconos](<colorTipografíaIconos.md>).
 
 Selecciona **Inter**, Regular y Bold. Crea estilos con tamaño/interlineado explícitos:
 
@@ -314,6 +333,8 @@ Esta referencia utiliza interlineado 1,4 para mantener una referencia consistent
 
 ### Paso 10. Ensayar longitud y espaciado
 
+**Referencia de UD1:** [Color, tipografía e iconos](<colorTipografíaIconos.md>).
+
 1. Crea un párrafo de dos o tres líneas y compara anchos de 520 y 340 px.
 2. Cuenta **caracteres**, no palabras, en una línea representativa.
 3. Duplica el párrafo y compara interlineado 1,4 y 1,6.
@@ -323,6 +344,8 @@ Esta referencia utiliza interlineado 1,4 para mantener una referencia consistent
 [![Sistema visual de Mirada con paleta, tipografía y espaciado](ejemplo-mirada/recursos/03-sistema.svg)](ejemplo-mirada/recursos/03-sistema.svg)
 
 ### Paso 11. Importar y normalizar iconos
+
+**Referencia de UD1:** [Color, tipografía e iconos](<colorTipografíaIconos.md>).
 
 Arrastra `camara.svg`, `flecha.svg`, `menu.svg` y `cerrar.svg` desde el paquete. Son recursos vectoriales originales del ejemplo, con caja de 24 × 24 y trazo de 2 px.
 
@@ -337,6 +360,8 @@ La marca `mirada.` se construye con texto; el icono no sustituye la identificaci
 
 ### Paso 12. Crear un botón con Auto Layout
 
+**Referencia de UD1:** [Componentes](<Componentes_Figma.md>).
+
 1. Escribe `Consultar actividad` con Inter Bold de 16 px.
 2. Selecciona el texto y aplica **Auto Layout**. El resultado debe ser un frame que contiene el texto, no un grupo de rectángulo y texto independientes.
 3. Usa dirección horizontal, relleno vertical de 12 px, horizontal de 16 px y alineación centrada.
@@ -347,6 +372,8 @@ La marca `mirada.` se construye con texto; el icono no sustituye la identificaci
 El botón con Auto Layout ajusta su ancho al texto. Una diferencia de ancho respecto a la lámina puede ser el resultado correcto de Hug contents.
 
 ### Paso 13. Separar tipo y estado
+
+**Referencia de UD1:** [Componentes](<Componentes_Figma.md>).
 
 Crea variantes del botón. Define `Tipo=Primario/Secundario` y `Estado=Normal/Hover/Foco/Deshabilitado` para las combinaciones que necesites.
 
@@ -360,6 +387,8 @@ La referencia incluye cuatro estados primarios y dos secundarios. No hace falta 
 
 ### Paso 14. Probar instancias
 
+**Referencia de UD1:** [Componentes](<Componentes_Figma.md>).
+
 1. Crea dos instancias del botón.
 2. Cambia el texto de una a `Consultar todas las actividades`.
 3. Cambia el radio en el componente principal y observa las instancias.
@@ -369,6 +398,8 @@ La referencia incluye cuatro estados primarios y dos secundarios. No hace falta 
 **Resultado esperado:** contenido distinto con la misma definición visual. Un cambio de texto no necesita una nueva variante.
 
 ### Paso 15. Construir la tarjeta de actividad
+
+**Referencia de UD1:** [Componentes](<Componentes_Figma.md>).
 
 1. Crea un frame vertical de **344 px de ancho**, padding de **20 px** y separación de **16 px**.
 2. Añade categoría, título, fecha, disponibilidad y acción.
@@ -382,6 +413,8 @@ La lámina reserva una altura inicial de 254 px. Si un título largo ya no cabe,
 
 ### Paso 16. Crear campo, etiqueta, ayuda y error
 
+**Referencia de UD1:** [Componentes](<Componentes_Figma.md>).
+
 1. Crea un frame de unos **344 px de ancho**.
 2. Añade la etiqueta `Correo de prueba` y un control de 48 px de altura con radio 8.
 3. Usa un borde Acción para identificar el control; el borde decorativo claro se reserva para separación no esencial.
@@ -393,6 +426,8 @@ La lámina reserva una altura inicial de 254 px. Si un título largo ya no cabe,
 
 ### Paso 17. Crear enlaces y cabecera
 
+**Referencia de UD1:** [Componentes](<Componentes_Figma.md>).
+
 1. Crea un componente `Enlace` con estados Normal, Actual y Foco.
 2. Actual utiliza un indicador adicional al color; Foco tiene contorno.
 3. Construye una cabecera de 1280 × 88 con marca a la izquierda y navegación a la derecha.
@@ -403,6 +438,8 @@ La referencia mantiene la geometría de ambas cabeceras como variantes independi
 
 ### Paso 18. Montar la página de componentes
 
+**Referencia de UD1:** [Componentes](<Componentes_Figma.md>).
+
 [![Botones, campos y tarjetas en diferentes estados](ejemplo-mirada/recursos/04-componentes.svg)](ejemplo-mirada/recursos/04-componentes.svg)
 
 Coloca principales en `04 Componentes` e instancias en las pantallas. Documenta el propósito de cada variante. Añade una ficha: nombre, contenido, estados, reglas y pruebas. Conserva una instancia con contenido largo para revisar futuros cambios del sistema.
@@ -410,6 +447,8 @@ Coloca principales en `04 Componentes` e instancias en las pantallas. Documenta 
 ## Bloque 4 · Construir pantallas
 
 ### Paso 19. Montar el inicio amplio
+
+**Referencia de UD1:** [Estructura](<Componentes de un interfaz web.md>) · [Principios visuales](<elementosDiseño.md>).
 
 Coloca instancias y contenido en el frame de 1280. Usa esta guía de posición como punto de partida:
 
@@ -432,6 +471,8 @@ Las tarjetas se distribuyen en una fila de 1120 px con huecos de 44 px: `3 × 34
 
 ### Paso 20. Adaptar el inicio estrecho
 
+**Referencia de UD1:** [Estructura](<Componentes de un interfaz web.md>) · [Figma y composición](<EmpezarFigma.md>).
+
 [![Inicio de Mirada en una sola columna con botones, imagen y tarjetas](ejemplo-mirada/recursos/06-movil.svg){ width="320" }](ejemplo-mirada/recursos/06-movil.svg)
 
 1. Usa el frame de 390 px y márgenes de 24 px.
@@ -445,6 +486,8 @@ La referencia de 344 px de tarjeta deja 23 px por lado. Puedes ajustar a 342 px 
 
 ### Paso 21. Diseñar el detalle
 
+**Referencia de UD1:** [Estructura](<Componentes de un interfaz web.md>).
+
 Crea un frame de 1280 × 850. Reutiliza cabecera, tipografía y botón. Añade título, descripción, imagen y estos datos: fecha, lugar, material y disponibilidad. La acción se llama `Solicitar plaza`.
 
 [![Detalle de La luz del sábado con información y siguiente acción](ejemplo-mirada/recursos/07-detalle.svg)](ejemplo-mirada/recursos/07-detalle.svg)
@@ -452,6 +495,8 @@ Crea un frame de 1280 × 850. Reutiliza cabecera, tipografía y botón. Añade t
 **Comprueba:** la persona puede decidir si la actividad encaja antes de abrir la solicitud. Incluye `Volver al inicio` para que el recorrido tenga salida.
 
 ### Paso 22. Representar solicitud y error
+
+**Referencia de UD1:** [Estructura](<Componentes de un interfaz web.md>) · [Componentes](<Componentes_Figma.md>).
 
 1. Crea `Solicitud / Vacía`, de 1280 × 810.
 2. Coloca nombre ficticio, correo y botón de enviar.
@@ -466,6 +511,8 @@ En esta referencia hay enlaces didácticos para **simular** datos completos o un
 
 ### Paso 23. Diseñar la confirmación
 
+**Referencia de UD1:** [Estructura](<Componentes de un interfaz web.md>).
+
 Crea `Confirmación`, de 1280 × 720, con estado, explicación y botón `Volver al inicio`. El mensaje debe indicar que se trata de una solicitud simulada.
 
 [![Confirmación del recorrido con aviso de simulación y regreso al inicio](ejemplo-mirada/recursos/10-confirmacion.svg)](ejemplo-mirada/recursos/10-confirmacion.svg)
@@ -475,6 +522,8 @@ Crea `Confirmación`, de 1280 × 720, con estado, explicación y botón `Volver 
 ## Bloque 5 · Trabajar imágenes y composición
 
 ### Paso 24. Importar el paisaje
+
+**Referencia de UD1:** [Figma y composición](<EmpezarFigma.md>).
 
 El paquete contiene `paisaje.svg` y su versión rasterizada `paisaje.png`, ambas creadas para esta práctica. Usa PNG para practicar relleno de imagen y recorte, y SVG para explorar los vectores. No son fotografías ni recursos descargados de terceros.
 
@@ -487,6 +536,8 @@ Puedes sustituirlo por una fotografía propia para practicar con otro contenido;
 
 ### Paso 25. Recortar sin deformar
 
+**Referencia de UD1:** [Figma y composición](<EmpezarFigma.md>).
+
 1. Crea una caja de 488 × 318 y aplica el paisaje como relleno.
 2. Compara Fit, Fill y Crop en las opciones de imagen.
 3. Con Crop, cambia el encuadre conservando las proporciones del recurso.
@@ -496,6 +547,8 @@ Puedes sustituirlo por una fotografía propia para practicar con otro contenido;
 **Comprueba:** el círculo del objetivo de la cámara no se convierte en una elipse por deformación accidental.
 
 ### Paso 26. Crear una máscara
+
+**Referencia de UD1:** [Figma y composición](<EmpezarFigma.md>).
 
 1. Coloca una copia de la imagen y dibuja una elipse sobre el área que quieres conservar.
 2. Sitúa la forma de máscara por debajo del contenido que va a enmascarar en el orden de capas.
@@ -509,6 +562,8 @@ La máscara recorta la región visible; no borra el original. Si desaparece todo
 
 ### Paso 27. Añadir un velo para el texto
 
+**Referencia de UD1:** [Figma y composición](<EmpezarFigma.md>) · [Principios visuales](<elementosDiseño.md>).
+
 1. Duplica la imagen y añade encima un rectángulo del mismo tamaño.
 2. Usa Texto `#172F2C` con opacidad inicial del **55 %**.
 3. Coloca `Sal a mirar.` en blanco sobre el velo.
@@ -521,6 +576,8 @@ El 55 % es un punto de partida del ejemplo, no una garantía automática para cu
 
 ### Paso 28. Crear soft crop con degradado
 
+**Referencia de UD1:** [Figma y composición](<EmpezarFigma.md>) · [Principios visuales](<elementosDiseño.md>).
+
 1. Sitúa la imagen sobre el fondo `#FAF8F2`.
 2. Añade un rectángulo delante con degradado horizontal.
 3. En un extremo usa ese mismo fondo con opacidad 100 %; en el otro, el mismo color con opacidad 0 %.
@@ -531,11 +588,15 @@ La lámina 12 muestra el resultado. No cambies a dos colores diferentes cuando q
 
 ### Paso 29. Probar superposición
 
+**Referencia de UD1:** [Figma y composición](<EmpezarFigma.md>) · [Principios visuales](<elementosDiseño.md>).
+
 Coloca una etiqueta verde parcialmente encima de la imagen y fuera de su borde inferior. Usa una estructura clara de capas y comprueba que no tapa el sujeto ni información de la tarea.
 
 La superposición puede relacionar elementos y aportar profundidad. Retira el efecto y compara: si solo añade ruido, conserva la versión simple. El espacio en blanco también organiza información.
 
 ### Paso 30. Practicar tensión, cierre y edición vectorial
+
+**Referencia de UD1:** [Figma y composición](<EmpezarFigma.md>) · [Principios visuales](<elementosDiseño.md>).
 
 1. Duplica la etiqueta y gírala **6°**. Compara estabilidad y tensión con la versión sin giro.
 2. Duplica el icono de flecha, entra en edición vectorial y mueve un punto. Observa cuándo deja de reconocerse.
@@ -548,6 +609,8 @@ Conserva estos ensayos en `06 Pruebas`, separados de las instancias de producci�
 ## Bloque 6 · Prototipar y revisar
 
 ### Paso 31. Conectar las pantallas
+
+**Referencia de UD1:** [Componentes](<Componentes_Figma.md>).
 
 En Prototype, establece el inicio del recorrido en `Inicio / Amplio` y conecta:
 
@@ -565,6 +628,8 @@ Utiliza transición **Instant** para comprobar primero el recorrido. La referenc
 
 ### Paso 32. Añadir una microinteracción
 
+**Referencia de UD1:** [Componentes](<Componentes_Figma.md>).
+
 1. En el conjunto del botón primario, conecta Normal con Hover.
 2. Usa **While hovering → Change to**, dentro del mismo conjunto.
 3. Selecciona Smart Animate, unos **150 ms** y una aceleración suave.
@@ -574,6 +639,8 @@ Utiliza transición **Instant** para comprobar primero el recorrido. La referenc
 Change to cambia una variante; Navigate to cambia de pantalla. Representar Foco no garantiza navegación real con Tab: esa prueba corresponde a la implementación posterior. [Referencia de componentes interactivos](https://help.figma.com/hc/en-us/articles/360061175334-Create-interactive-components-with-variants).
 
 ### Paso 33. Ensayar una ventana superpuesta
+
+**Referencia de UD1:** [Componentes](<Componentes_Figma.md>).
 
 Construye esta práctica manualmente:
 
@@ -587,11 +654,15 @@ Una ventana superpuesta interactiva y el velo sobre una imagen son conceptos dis
 
 ### Paso 34. Revisar animación y desplazamiento
 
+**Referencia de UD1:** [Componentes](<Componentes_Figma.md>).
+
 Prueba el prototipo con movimiento y con transiciones Instant. Comprueba que ninguna información depende de la animación. Revisa el desplazamiento vertical del inicio estrecho con un viewport menor que la altura del contenido.
 
 No es necesario exportar un GIF para demostrar las conexiones. Puedes compartir el prototipo y conservar una grabación de su recorrido como evidencia adicional. La exportación estática no preserva interacciones.
 
 ### Paso 35. Realizar una prueba de tarea
+
+**Referencia de UD1:** [Planificación](<planificación.md>).
 
 Pide a una persona que averigüe qué necesita para participar el sábado. No señales dónde pulsar. Registra resultado, dudas y ayuda necesaria. Después pídele recorrer un error de solicitud, explicando que los datos están simulados.
 
@@ -602,6 +673,8 @@ Pide a una persona que averigüe qué necesita para participar el sábado. No se
 Si no puedes realizar la prueba, indica que está pendiente. No inventes resultados ni cambies un componente solo para mostrar que has modificado algo.
 
 ### Paso 36. Comprobar el resultado
+
+**Referencia de UD1:** [Objetivos y criterios](<objetivos.md>).
 
 - [ ] Hay brief, tres tareas, mapa y flujo.
 - [ ] Existen dos bocetos alternativos y una elección justificada.
@@ -616,6 +689,8 @@ Si no puedes realizar la prueba, indica que está pendiente. No inventes resulta
 
 ### Paso 37. Compartir y exportar
 
+**Referencia de UD1:** [Objetivos y criterios](<objetivos.md>).
+
 1. Conserva el archivo editable en Figma con un nombre de versión.
 2. Comprueba los permisos del enlace con el destinatario.
 3. Exporta las pantallas como PNG o PDF para revisión visual.
@@ -625,6 +700,8 @@ Si no puedes realizar la prueba, indica que está pendiente. No inventes resulta
 El enlace, la copia editable y las exportaciones visuales tienen funciones distintas. No entregues solo una imagen si se deben comprobar componentes y prototipado.
 
 ### Paso 38. Transferir al proyecto de la actividad 21
+
+**Referencia de UD1:** [Actividad 21](<Actividades.md#actividad-21>).
 
 Utiliza las mismas técnicas con tu tema. Conserva tu contenido y justifica tus decisiones; no es necesario que tu proyecto tenga el aspecto de Mirada.
 

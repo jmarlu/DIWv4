@@ -1,5 +1,12 @@
 # Componentes y estructura
 
+!!! example "Este apartado en Mirada"
+    Identificación, navegación, contenido e interacción en las pantallas amplias y estrechas.
+
+    [Paso 4: Del brief al mapa y al flujo](Ejemplo_Figma_Mirada.md#paso-4-del-brief-al-mapa-y-al-flujo) · [Paso 17: Crear enlaces y cabecera](Ejemplo_Figma_Mirada.md#paso-17-crear-enlaces-y-cabecera) · [Paso 19: Montar el inicio amplio](Ejemplo_Figma_Mirada.md#paso-19-montar-el-inicio-amplio) · [Paso 20: Adaptar el inicio estrecho](Ejemplo_Figma_Mirada.md#paso-20-adaptar-el-inicio-estrecho) · [Paso 21: Diseñar el detalle](Ejemplo_Figma_Mirada.md#paso-21-disenar-el-detalle) · [Paso 22: Representar solicitud y error](Ejemplo_Figma_Mirada.md#paso-22-representar-solicitud-y-error) · [Paso 23: Diseñar la confirmación](Ejemplo_Figma_Mirada.md#paso-23-disenar-la-confirmacion).
+
+    Mirada es un ejemplo paso a paso sin entrega.
+
 ## Componentes de una interfaz Web.
 
 Son muchos los elementos de los que puede estar compuesta una interfaz Web. El número de elementos empleados dependerá del objetivo del sitio. Así, un portal de noticias, o un portal de un organismo público seguramente utilizará un mayor número de elementos que una página Web de un restaurante o una página personal. Los más destacados son:

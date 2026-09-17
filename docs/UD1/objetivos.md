@@ -55,4 +55,4 @@ Esta correspondencia orienta la revisión de evidencias; las ponderaciones y con
 
 ## Ejemplo completo para practicar
 
-[Mirada: del problema al prototipo](Ejemplo_Figma_Mirada.md) desarrolla un mismo caso en 38 pasos, con 12 láminas, recursos descargables para construir tus componentes en Figma. Puedes seguirlo como demostración y trasladar sus decisiones a tu proyecto. Incluye la relación entre lo diseñado en UD1 y su implementación en las siguientes unidades.
+[Mirada: del problema al prototipo](Ejemplo_Figma_Mirada.md) desarrolla un mismo caso en 38 pasos, con 12 láminas, recursos descargables para construir tus componentes en Figma. Es un ejemplo paso a paso sin entrega. Puedes seguirlo como demostración y trasladar sus decisiones a tu proyecto de la actividad 21, la única actividad obligatoria, que evolucionará durante el curso. El docente decidirá cuáles de las demás actividades se entregan. Incluye la relación entre lo diseñado en UD1 y su implementación en las siguientes unidades.

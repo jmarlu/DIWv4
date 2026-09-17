@@ -1,5 +1,12 @@
 # Tutorial Completo: Creando Componentes en Figma
 
+!!! example "Este apartado en Mirada"
+    Auto Layout, variantes, instancias, estados, prototipo y microinteracciones.
+
+    [Paso 12: Crear un botón con Auto Layout](Ejemplo_Figma_Mirada.md#paso-12-crear-un-boton-con-auto-layout) · [Paso 13: Separar tipo y estado](Ejemplo_Figma_Mirada.md#paso-13-separar-tipo-y-estado) · [Paso 14: Probar instancias](Ejemplo_Figma_Mirada.md#paso-14-probar-instancias) · [Paso 15: Construir la tarjeta de actividad](Ejemplo_Figma_Mirada.md#paso-15-construir-la-tarjeta-de-actividad) · [Paso 16: Crear campo, etiqueta, ayuda y error](Ejemplo_Figma_Mirada.md#paso-16-crear-campo-etiqueta-ayuda-y-error) · [Paso 17: Crear enlaces y cabecera](Ejemplo_Figma_Mirada.md#paso-17-crear-enlaces-y-cabecera) · [Paso 18: Montar la página de componentes](Ejemplo_Figma_Mirada.md#paso-18-montar-la-pagina-de-componentes) · [Paso 31: Conectar las pantallas](Ejemplo_Figma_Mirada.md#paso-31-conectar-las-pantallas) · [Paso 32: Añadir una microinteracción](Ejemplo_Figma_Mirada.md#paso-32-anadir-una-microinteraccion) · [Paso 33: Ensayar una ventana superpuesta](Ejemplo_Figma_Mirada.md#paso-33-ensayar-una-ventana-superpuesta) · [Paso 34: Revisar animación y desplazamiento](Ejemplo_Figma_Mirada.md#paso-34-revisar-animacion-y-desplazamiento).
+
+    Mirada es un ejemplo paso a paso sin entrega.
+
 ## 📋 Introducción
 En este documento aprenderás a crear componentes reutilizables en Figma, basándonos en el diseño de la landing page "DesignPro". Los componentes son elementos clave para mantener la consistencia y eficiencia en tus diseños.
 

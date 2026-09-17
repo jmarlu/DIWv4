@@ -1,5 +1,12 @@
 # Planificación
 
+!!! example "Este apartado en Mirada"
+    Del encargo y los perfiles al inventario, el mapa, el flujo y la prueba de tarea.
+
+    [Paso 2: Escribir y entender el brief](Ejemplo_Figma_Mirada.md#paso-2-escribir-y-entender-el-brief) · [Paso 3: Del brief al inventario de contenido](Ejemplo_Figma_Mirada.md#paso-3-del-brief-al-inventario-de-contenido) · [Paso 4: Del brief al mapa y al flujo](Ejemplo_Figma_Mirada.md#paso-4-del-brief-al-mapa-y-al-flujo) · [Paso 35: Realizar una prueba de tarea](Ejemplo_Figma_Mirada.md#paso-35-realizar-una-prueba-de-tarea).
+
+    Mirada es un ejemplo paso a paso sin entrega.
+
 ## Diseño centrado en el usuario
 
 Diseñar una interfaz requiere entender quién la utiliza, qué quiere conseguir y en qué contexto. El proceso es iterativo: investigamos, proponemos una solución, observamos su uso y revisamos las decisiones.

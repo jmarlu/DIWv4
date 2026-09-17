@@ -1,5 +1,12 @@
 # Elementos del Diseño
 
+!!! example "Este apartado en Mirada"
+    Jerarquía, proximidad, semejanza, figura/fondo, simetría, continuidad y cierre aplicados a la composición.
+
+    [Paso 5: Comparar dos bocetos](Ejemplo_Figma_Mirada.md#paso-5-comparar-dos-bocetos) · [Paso 19: Montar el inicio amplio](Ejemplo_Figma_Mirada.md#paso-19-montar-el-inicio-amplio) · [Paso 27: Añadir un velo para el texto](Ejemplo_Figma_Mirada.md#paso-27-anadir-un-velo-para-el-texto) · [Paso 29: Probar superposición](Ejemplo_Figma_Mirada.md#paso-29-probar-superposicion) · [Paso 30: Practicar tensión, cierre y edición vectorial](Ejemplo_Figma_Mirada.md#paso-30-practicar-tension-cierre-y-edicion-vectorial).
+
+    Mirada es un ejemplo paso a paso sin entrega.
+
 ## Concepto de diseño
 
 !!! note ""

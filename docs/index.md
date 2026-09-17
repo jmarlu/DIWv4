@@ -5,8 +5,10 @@ Aprende a diseñar, construir y revisar una interfaz web. Empezarás con un prob
 ## Empieza aquí
 
 1. Lee la [guía de UD1](UD1/guiaUnidad.md) y prepara tu proyecto.
-2. Utiliza [Mirada](UD1/Ejemplo_Figma_Mirada.md) para practicar las técnicas que se muestran en clase.
-3. Aplica lo aprendido a tu propia web. Conserva una versión al terminar cada unidad.
+2. Consulta [Mirada](UD1/Ejemplo_Figma_Mirada.md), el ejemplo paso a paso de clase, sin entrega.
+3. Desarrolla tu propia web en la actividad 21, la única actividad obligatoria, y evoluciónala durante el curso. Conserva una versión al terminar cada unidad.
+
+El docente decidirá cuáles de las demás actividades se entregan y lo comunicará en clase.
 
 | Etapa | Lo que consigues |
 |---|---|

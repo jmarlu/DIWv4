@@ -1,5 +1,12 @@
 # Figma
 
+!!! example "Este apartado en Mirada"
+    Archivo, frames, guías, imágenes, recortes, máscaras, velo, soft crop, superposición y tensión.
+
+    [Paso 1: Crear el archivo y el espacio de trabajo](Ejemplo_Figma_Mirada.md#paso-1-crear-el-archivo-y-el-espacio-de-trabajo) · [Paso 6: Crear los frames y las guías](Ejemplo_Figma_Mirada.md#paso-6-crear-los-frames-y-las-guias) · [Paso 24: Importar el paisaje](Ejemplo_Figma_Mirada.md#paso-24-importar-el-paisaje) · [Paso 25: Recortar sin deformar](Ejemplo_Figma_Mirada.md#paso-25-recortar-sin-deformar) · [Paso 26: Crear una máscara](Ejemplo_Figma_Mirada.md#paso-26-crear-una-mascara) · [Paso 27: Añadir un velo para el texto](Ejemplo_Figma_Mirada.md#paso-27-anadir-un-velo-para-el-texto) · [Paso 28: Crear soft crop con degradado](Ejemplo_Figma_Mirada.md#paso-28-crear-soft-crop-con-degradado) · [Paso 29: Probar superposición](Ejemplo_Figma_Mirada.md#paso-29-probar-superposicion) · [Paso 30: Practicar tensión, cierre y edición vectorial](Ejemplo_Figma_Mirada.md#paso-30-practicar-tension-cierre-y-edicion-vectorial).
+
+    Mirada es un ejemplo paso a paso sin entrega.
+
 En este curso vamos a utilizar Figma como herramienta de diseño de interfaz colaborativa. Con ella los podemos crear, probar y compartir los diseños.
 
 Trabajaremos con **Figma Design desde el navegador**, en https://www.figma.com. Inicia sesión con tu cuenta y crea un archivo de diseño. No necesitas instalar la aplicación de escritorio para las actividades del curso.

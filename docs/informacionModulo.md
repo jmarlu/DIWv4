@@ -53,7 +53,7 @@ La calificación de cada RA se obtendrá de la media ponderada de las actividade
 
 !!! Warning
 
-    Hay que entregar todas las actividades propuestas durante el curso. Se especificará en cada actividad la fecha y forma de entrega.
+    La actividad 21 es la única actividad obligatoria y su proyecto evolucionará a lo largo del curso. El docente decidirá cuáles de las demás actividades se entregan y comunicará la fecha y forma de entrega. Mirada es un ejemplo paso a paso sin entrega.
 
     **No se acepta la entrega de prácticas fuera de plazo.**  Antes de la fecha del examen se abrirá un enlace para la entrega de las prácticas atrasadas, de forma que se pueda superar el modulo en la respectiva evaluación. Se penalizará en la calificación la entrega de actividades fuera de plazo.
 

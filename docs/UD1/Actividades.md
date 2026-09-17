@@ -1,6 +1,8 @@
 # Actividades
 
-Consulta la [guía de la unidad](guiaUnidad.md) para seguir el orden de aprendizaje. La numeración se conserva; la actividad 21 reúne el proyecto que continuará en las siguientes unidades.
+Consulta la [guía de la unidad](guiaUnidad.md) para seguir el orden de aprendizaje. La numeración se conserva.
+
+Mirada es un ejemplo explicado paso a paso y no tiene ninguna entrega. La actividad 21 es la única actividad obligatoria y su proyecto evolucionará a lo largo del curso. El docente decidirá cuáles de las demás actividades se entregan y lo comunicará en clase. Las indicaciones de «Entrega» de A1–A20 describen qué presentar solo si el docente solicita esa actividad.
 
 ## Actividad 1
 

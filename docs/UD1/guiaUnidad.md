@@ -4,7 +4,7 @@ Partimos de **Tema, tareas y contenido inicial**. Al terminar conservarás **UD1
 
 Sigue estos bloques en el orden indicado. Las fechas y entregas se comunican en clase. Aplica lo aprendido a tu proyecto y conserva las evidencias con el identificador del bloque.
 
-[Mirada: ejemplo guiado](Ejemplo_Figma_Mirada.md) · [Actividades A1–A21](Actividades.md) · [Guía de objetivos y criterios](objetivos.md). Trabaja en un archivo de prácticas y otro del proyecto propio. DesignPro es apoyo y A20 un ensayo breve.
+[Mirada: ejemplo guiado](Ejemplo_Figma_Mirada.md) · [Actividades A1–A21](Actividades.md) · [Guía de objetivos y criterios](objetivos.md). Mirada es un ejemplo explicado paso a paso y no tiene ninguna entrega. La actividad 21 es la única actividad obligatoria y su proyecto evolucionará a lo largo del curso. El docente decidirá cuáles de las demás actividades se entregan y lo comunicará en clase. Trabaja en un archivo de prácticas y otro del proyecto propio. DesignPro es apoyo y A20 un ensayo breve.
 
 ## B01 · Problema y usuarios
 
@@ -120,7 +120,7 @@ Observa una tarea sin dar pistas, registra lo ocurrido y repite tras corregir.
 
 **Consulta:** [Actividades](<Actividades.md>).
 
-**Práctica:** A21 entrega; comprobar índice A1–A21.
+**Práctica:** A21 entrega; revisar otras entregas solo si las ha solicitado el docente.
 
 Guarda UD1-v1, revisa permisos/exportaciones y prepara el contenido para UD2.
 

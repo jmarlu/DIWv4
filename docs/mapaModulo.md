@@ -1,6 +1,6 @@
 # Un proyecto que evoluciona
 
-Mirada acompaña las explicaciones. Tu proyecto propio conecta las unidades: conserva versiones para explicar qué cambias y por qué.
+Mirada es el ejemplo paso a paso que acompaña las explicaciones y no tiene entrega. La actividad 21 es la única actividad obligatoria: su proyecto propio conecta las unidades y evoluciona durante el curso. Las versiones de cada etapa son avances de ese mismo proyecto. Conserva versiones para explicar qué cambias y por qué. El docente decidirá cuáles de las demás actividades se entregan.
 
 | Etapa | Recibe | Produce | Se comprueba |
 |---|---|---|---|

@@ -1,5 +1,12 @@
 # Color, tipografía e iconos
 
+!!! example "Este apartado en Mirada"
+    Paleta por función, modelos de color, contraste, estilos de texto, espaciado e iconos.
+
+    [Paso 7: Crear los colores por función](Ejemplo_Figma_Mirada.md#paso-7-crear-los-colores-por-funcion) · [Paso 8: Comprobar contraste](Ejemplo_Figma_Mirada.md#paso-8-comprobar-contraste) · [Paso 9: Crear estilos tipográficos](Ejemplo_Figma_Mirada.md#paso-9-crear-estilos-tipograficos) · [Paso 10: Ensayar longitud y espaciado](Ejemplo_Figma_Mirada.md#paso-10-ensayar-longitud-y-espaciado) · [Paso 11: Importar y normalizar iconos](Ejemplo_Figma_Mirada.md#paso-11-importar-y-normalizar-iconos).
+
+    Mirada es un ejemplo paso a paso sin entrega.
+
 ## Color
 
 Ten en cuenta que una misma página se puede ver de distinta forma según la plataforma, sistema operativo, navegador y monitor empleados.
